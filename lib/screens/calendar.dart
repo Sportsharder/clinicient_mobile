@@ -60,6 +60,11 @@ class CalendarState extends State<Calendar> {
               Container(
               //  margin: EdgeInsets.all(10),
                 child: CalendarCarousel<Event>(
+                  headerMargin: EdgeInsets.only(),
+                  weekDayMargin: EdgeInsets.only(top:0, bottom:0),
+
+                  //viewportFraction: .1,
+
                   onDayPressed: (DateTime date, List<Event> events) {
                     this.setState(() => _currentDate = date);
                   },
@@ -108,8 +113,9 @@ class CalendarState extends State<Calendar> {
                     return null;
                   },
                   weekFormat: false,
+                  weekDayPadding: EdgeInsets.only(),
                   markedDatesMap: _markedDateMap,
-                  height: 400.0,
+                  height: 350.0,
                   selectedDateTime: _currentDate,
                   daysHaveCircularBorder: null,
 
