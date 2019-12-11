@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "624101589778",
+    "firebase_url": "https://clinicient-ad7c5.firebaseio.com",
+    "project_id": "clinicient-ad7c5",
+    "storage_bucket": "clinicient-ad7c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624101589778:android:ebe33f93e1a8b1e127e9cb",
+        "android_client_info": {
+          "package_name": "com.clinicient.clinicient_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624101589778-u9mkgeclk0o42n57mb1042cv0dqfjomr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTq0uDQKT8wCCeW65OUhKiNON4HJ9qY0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624101589778-u9mkgeclk0o42n57mb1042cv0dqfjomr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
