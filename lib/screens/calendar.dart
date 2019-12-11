@@ -143,7 +143,8 @@ class CalendarState extends State<Calendar> {
                             Appointment currentRow = _appointments[index];
 
                             return Row(children: <Widget>[
-                              Text(currentRow.patientName)
+                              Text(currentRow.patientName, style: TextStyle(fontSize: 16)),
+                              Padding(padding: EdgeInsets.only(bottom: 30),)
                             ]);
                           })),
                 ),
