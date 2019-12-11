@@ -6,9 +6,9 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 
 class Calendar extends StatefulWidget {
-  Calendar({Key key, this.title}) : super(key: key);
+  Calendar({Key key}) : super(key: key);
 
-  final String title;
+  String title = "Insight Mobile Calendar";
 
   @override
   CalendarState createState() => CalendarState();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/calendar.dart';
+import '../screens/gamification.dart';
 import 'dart:io';
 
 class NavigationDrawer extends StatelessWidget {
@@ -63,7 +64,24 @@ class NavigationDrawer extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Calendar(title: 'Insight Mobile',)),
+                          builder: (context) => Calendar()),
+                          (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.only(left: 25),
+                leading: Icon(Icons.videogame_asset, color: Colors.white),
+                title: Text(
+                  'Gamification',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Gamification()),
                           (Route<dynamic> route) => false);
                 },
               ),

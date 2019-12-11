@@ -41,9 +41,9 @@ class App extends StatelessWidget {
 */
       routes: <String, WidgetBuilder>{
         //'/': (context) => Calendar(),
-        '/home': (context) => Calendar(title: 'Insight Mobile'),
+        '/home': (context) => Calendar(),
       },
-      home: Calendar(title: 'Insight Mobile'),
+      home: Calendar(),
     );
   }
 }
