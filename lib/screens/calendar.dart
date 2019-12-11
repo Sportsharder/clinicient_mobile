@@ -40,6 +40,10 @@ class CalendarState extends State<Calendar> {
     Appointment(patientName: "Someone6"),
     Appointment(patientName: "Someone7"),
     Appointment(patientName: "Someone8"),
+    Appointment(patientName: "Someone9"),
+    Appointment(patientName: "Someone10"),
+    Appointment(patientName: "Someone11"),
+    Appointment(patientName: "Someone12"),
   ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
 
   @override
@@ -122,8 +126,8 @@ class CalendarState extends State<Calendar> {
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-              SizedBox(
-                height: 100,
+              Expanded(
+                //height: 100,
                 //width: 200,
                 child: SingleChildScrollView(
                   child: Container(
