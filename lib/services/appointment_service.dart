@@ -6,9 +6,9 @@ import '../constants/urls.dart';
 
 
 class AppointmentService {
-  Future refreshSchedule(String therapistID) async {
+  Future refreshSchedule(int therapistID) async {
     String url =
-        Urls().SERVER + Urls.APPOINTMENT; //+circleID + '?' + memberID;
+        Urls().SERVER + Urls.APPOINTMENT; //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
 

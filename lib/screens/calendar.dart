@@ -5,6 +5,7 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'patientdetail.dart';
+import '../blocs/appointment_bloc.dart';
 
 class Appointment {
   final String patientName;
@@ -25,6 +26,8 @@ class CalendarState extends State<Calendar> {
   var _currentDate;
   var _markedDateMap;
   ScrollController _scrollController = new ScrollController();
+  AppointmentBloc _appointmentBloc = AppointmentBloc();
+
 
   List<Appointment> _appointments = [
     Appointment(patientName: "Melinda"),
@@ -45,6 +48,28 @@ class CalendarState extends State<Calendar> {
     Appointment(patientName: "Someone11"),
     Appointment(patientName: "Someone12"),
   ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _appointmentBloc.appointmentsRefreshed.listen((response) {
+      if (mounted) {
+
+        /*
+        setState(() {
+
+        });
+        */
+
+      }
+    }, onError: (err) {
+
+      print("error $err");
+    }, cancelOnError: false);
+
+    _appointmentBloc.refreshAppointments(5);
+  }
 
   @override
   Widget build(BuildContext context) {
