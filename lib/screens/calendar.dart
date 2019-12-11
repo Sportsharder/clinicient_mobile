@@ -4,6 +4,7 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
+import 'patientdetail.dart';
 
 class Appointment {
   final String patientName;
@@ -24,7 +25,6 @@ class CalendarState extends State<Calendar> {
   var _currentDate;
   var _markedDateMap;
   ScrollController _scrollController = new ScrollController();
-
 
   List<Appointment> _appointments = [
     Appointment(patientName: "Melinda"),
@@ -48,7 +48,7 @@ class CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
         drawer: NavigationDrawer(),
         appBar: TapBar(
           title: widget.title,
@@ -62,10 +62,10 @@ class CalendarState extends State<Calendar> {
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
               ),*/
               Container(
-              //  margin: EdgeInsets.all(10),
+                //  margin: EdgeInsets.all(10),
                 child: CalendarCarousel<Event>(
                   headerMargin: EdgeInsets.only(),
-                  weekDayMargin: EdgeInsets.only(top:0, bottom:0),
+                  weekDayMargin: EdgeInsets.only(top: 0, bottom: 0),
 
                   //viewportFraction: .1,
 
@@ -97,7 +97,6 @@ class CalendarState extends State<Calendar> {
                     TextStyle textStyle,
                     bool isNextMonthDay,
                     bool isThisMonthDay,
-
                     DateTime day,
                   ) {
                     /// If you return null, [CalendarCarousel] will build container for current [day] with default function.
@@ -142,13 +141,33 @@ class CalendarState extends State<Calendar> {
                           itemBuilder: (BuildContext context, int index) {
                             Appointment currentRow = _appointments[index];
 
-                            return Row(children: <Widget>[
-                              Text(currentRow.patientName, style: TextStyle(fontSize: 16)),
-                              Padding(padding: EdgeInsets.only(bottom: 30),)
-                            ]);
+                            return InkWell(
+                              onTap: _openPatientDetail,
+                                child: Row(children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(top: 10),
+                              ),
+                              Text(currentRow.patientName,
+                                  style: TextStyle(fontSize: 16)),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10),
+                              )
+                            ]));
                           })),
                 ),
               ),
             ]));
+  }
+
+
+
+
+  _openPatientDetail(){
+
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PatientDetail()),
+        ModalRoute.withName("/home"));
   }
 }

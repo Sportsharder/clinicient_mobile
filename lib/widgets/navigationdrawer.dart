@@ -24,7 +24,7 @@ class NavigationDrawer extends StatelessWidget {
                             width: 200.0,
                             height: 115.0,
                             child: InkWell(
-                                child: Image.asset('assets/clini.png',
+                                child: Image.asset('assets/logo_reversed.png',
                                     //fit: BoxFit.fill,
                                     height: 40,
                                     width: 40,
