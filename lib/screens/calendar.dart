@@ -5,6 +5,12 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 
+class Appointment {
+  final String patientName;
+
+  Appointment({this.patientName});
+}
+
 class Calendar extends StatefulWidget {
   Calendar({Key key}) : super(key: key);
 
@@ -17,6 +23,24 @@ class Calendar extends StatefulWidget {
 class CalendarState extends State<Calendar> {
   var _currentDate;
   var _markedDateMap;
+  ScrollController _scrollController = new ScrollController();
+
+
+  List<Appointment> _appointments = [
+    Appointment(patientName: "Melinda"),
+    Appointment(patientName: "Kelsey"),
+    Appointment(patientName: "Serhat"),
+    Appointment(patientName: "Joel"),
+    Appointment(patientName: "Jeremy"),
+    Appointment(patientName: "Someone1"),
+    Appointment(patientName: "Someone2"),
+    Appointment(patientName: "Someone3"),
+    Appointment(patientName: "Someone4"),
+    Appointment(patientName: "Someone5"),
+    Appointment(patientName: "Someone6"),
+    Appointment(patientName: "Someone7"),
+    Appointment(patientName: "Someone8"),
+  ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +52,10 @@ class CalendarState extends State<Calendar> {
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Clinic', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
+              Text(
+                'Clinic',
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              ),
               Container(
                 margin: EdgeInsets.all(16),
                 child: CalendarCarousel<Event>(
@@ -40,25 +67,27 @@ class CalendarState extends State<Calendar> {
                   ),
                   thisMonthDayBorderColor: Colors.grey,
                   todayButtonColor: Colors.teal,
-                  headerTextStyle: TextStyle(color: Colors.teal, fontWeight: FontWeight.normal, fontSize: 20),
-                  weekdayTextStyle: TextStyle(color: Colors.teal, fontWeight: FontWeight.normal, fontSize: 14),
+                  headerTextStyle: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20),
+                  weekdayTextStyle: TextStyle(
+                      color: Colors.teal,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14),
                   iconColor: Colors.teal,
-//      weekDays: null, /// for pass null when you do not want to render weekDays
-//      headerText: Container( /// Example for rendering custom header
-//        child: Text('Custom Header'),
-//      ),
                   customDayBuilder: (
-                      /// you can provide your own build function to make custom day containers
-                      bool isSelectable,
-                      int index,
-                      bool isSelectedDay,
-                      bool isToday,
-                      bool isPrevMonthDay,
-                      TextStyle textStyle,
-                      bool isNextMonthDay,
-                      bool isThisMonthDay,
-                      DateTime day,
-                      ) {
+                    /// you can provide your own build function to make custom day containers
+                    bool isSelectable,
+                    int index,
+                    bool isSelectedDay,
+                    bool isToday,
+                    bool isPrevMonthDay,
+                    TextStyle textStyle,
+                    bool isNextMonthDay,
+                    bool isThisMonthDay,
+                    DateTime day,
+                  ) {
                     /// If you return null, [CalendarCarousel] will build container for current [day] with default function.
                     /// This way you can build custom containers for specific days only, leaving rest as default.
 
@@ -80,7 +109,28 @@ class CalendarState extends State<Calendar> {
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-            ]
-        ));
+              SizedBox(
+                height: 100,
+                //width: 200,
+                child: SingleChildScrollView(
+                  child: Container(
+                      // color: Colors.black,
+                      // padding: const EdgeInsets.only(
+                      //     left: 0, right: 0),
+                      child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          controller: _scrollController,
+                          shrinkWrap: true,
+                          itemCount: _appointments.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            Appointment currentRow = _appointments[index];
+
+                            return Row(children: <Widget>[
+                              Text(currentRow.patientName)
+                            ]);
+                          })),
+                ),
+              ),
+            ]));
   }
 }
