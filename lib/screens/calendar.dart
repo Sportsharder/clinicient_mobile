@@ -50,14 +50,15 @@ class CalendarState extends State<Calendar> {
           title: widget.title,
         ),
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+              /*Text(
                 'Clinic',
                 style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-              ),
+              ),*/
               Container(
-                margin: EdgeInsets.all(16),
+              //  margin: EdgeInsets.all(10),
                 child: CalendarCarousel<Event>(
                   onDayPressed: (DateTime date, List<Event> events) {
                     this.setState(() => _currentDate = date);
@@ -70,12 +71,13 @@ class CalendarState extends State<Calendar> {
                   headerTextStyle: TextStyle(
                       color: Colors.teal,
                       fontWeight: FontWeight.normal,
-                      fontSize: 20),
+                      fontSize: 16),
                   weekdayTextStyle: TextStyle(
                       color: Colors.teal,
                       fontWeight: FontWeight.normal,
-                      fontSize: 14),
+                      fontSize: 12),
                   iconColor: Colors.teal,
+                  dayPadding: 1,
                   customDayBuilder: (
                     /// you can provide your own build function to make custom day containers
                     bool isSelectable,
@@ -86,11 +88,13 @@ class CalendarState extends State<Calendar> {
                     TextStyle textStyle,
                     bool isNextMonthDay,
                     bool isThisMonthDay,
+
                     DateTime day,
                   ) {
                     /// If you return null, [CalendarCarousel] will build container for current [day] with default function.
                     /// This way you can build custom containers for specific days only, leaving rest as default.
 
+                    /*
                     // Example: every 15th of month, we have a flight, we can place an icon in the container like that:
                     if (day.day == 15) {
                       return Center(
@@ -99,10 +103,13 @@ class CalendarState extends State<Calendar> {
                     } else {
                       return null;
                     }
+                    */
+
+                    return null;
                   },
                   weekFormat: false,
                   markedDatesMap: _markedDateMap,
-                  height: 420.0,
+                  height: 400.0,
                   selectedDateTime: _currentDate,
                   daysHaveCircularBorder: null,
 
