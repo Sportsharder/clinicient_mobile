@@ -25,7 +25,7 @@ class Gamification extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       initialIndex: tab,
-      child: Scaffold(
+      child: Scaffold(drawer: NavigationDrawer(),
         appBar: AppBar(backgroundColor: Colors.teal,
           bottom: TabBar(
             indicatorColor: Colors.white,

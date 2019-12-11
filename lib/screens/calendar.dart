@@ -48,7 +48,7 @@ class CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         drawer: NavigationDrawer(),
         appBar: TapBar(
           title: widget.title,
@@ -142,32 +142,25 @@ class CalendarState extends State<Calendar> {
                             Appointment currentRow = _appointments[index];
 
                             return InkWell(
-                              onTap: _openPatientDetail,
+                                onTap: _openPatientDetail,
                                 child: Row(children: <Widget>[
-                              Padding(
-                                padding: EdgeInsets.only(top: 10),
-                              ),
-                              Text(currentRow.patientName,
-                                  style: TextStyle(fontSize: 16)),
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 10),
-                              )
-                            ]));
+                                  Text(currentRow.patientName,
+                                      style: TextStyle(fontSize: 16)),
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.only(bottom: 15, top: 15),
+                                  )
+                                ]));
                           })),
                 ),
               ),
             ]));
   }
 
-
-
-
-  _openPatientDetail(){
-
+  _openPatientDetail() {
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(
-            builder: (context) => PatientDetail()),
+        MaterialPageRoute(builder: (context) => PatientDetail()),
         ModalRoute.withName("/home"));
   }
 }
