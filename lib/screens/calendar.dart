@@ -23,12 +23,12 @@ class CalendarState extends State<Calendar> {
     return Scaffold(
         drawer: NavigationDrawer(),
         appBar: TapBar(
-          title: 'Watering Schedule',
+          title: widget.title,
         ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Your plants are thirsty!'),
+              Text('Clinic', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
               Container(
                 margin: EdgeInsets.all(16),
                 child: CalendarCarousel<Event>(

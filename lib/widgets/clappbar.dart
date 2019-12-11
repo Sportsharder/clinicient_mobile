@@ -31,7 +31,8 @@ class _TapBarState extends State<TapBar> {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => Calendar()),
+                      MaterialPageRoute(
+                          builder: (context) => Calendar(title: 'Insight Mobile',)),
                           (Route<dynamic> route) => false);
                 }))
       ],

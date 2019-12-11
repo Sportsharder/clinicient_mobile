@@ -20,17 +20,16 @@ class NavigationDrawer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(
-                            width: 115.0,
+                            width: 200.0,
                             height: 115.0,
                             child: InkWell(
-                                child: ClipOval(
-                                    child: Image.asset('assets/icon.png',
-                                        //fit: BoxFit.fill,
-                                        height: 40,
-                                        width: 40,
-                                        fit: BoxFit.cover)
-                                    //backgroundColor: ThemeColors.primaryColor,
-                                    ),
+                                child: Image.asset('assets/clini.png',
+                                    //fit: BoxFit.fill,
+                                    height: 40,
+                                    width: 40,
+                                    fit: BoxFit.fitWidth),
+                                //backgroundColor: ThemeColors.primaryColor,
+
                                 onTap: () {
                                   Navigator.pushAndRemoveUntil(
                                       context,
@@ -50,6 +49,23 @@ class NavigationDrawer extends StatelessWidget {
                   ],
                 ),
                 decoration: new BoxDecoration(color: Colors.teal),
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.only(left: 25),
+                leading: Icon(Icons.calendar_today, color: Colors.white),
+                title: Text(
+                  'Schedule',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Calendar(title: 'Insight Mobile',)),
+                          (Route<dynamic> route) => false);
+                },
               ),
             ],
           ),
