@@ -40,6 +40,10 @@ class CalendarState extends State<Calendar> {
     Appointment(patientName: "Someone6"),
     Appointment(patientName: "Someone7"),
     Appointment(patientName: "Someone8"),
+    Appointment(patientName: "Someone9"),
+    Appointment(patientName: "Someone10"),
+    Appointment(patientName: "Someone11"),
+    Appointment(patientName: "Someone12"),
   ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
 
   @override
@@ -60,6 +64,11 @@ class CalendarState extends State<Calendar> {
               Container(
               //  margin: EdgeInsets.all(10),
                 child: CalendarCarousel<Event>(
+                  headerMargin: EdgeInsets.only(),
+                  weekDayMargin: EdgeInsets.only(top:0, bottom:0),
+
+                  //viewportFraction: .1,
+
                   onDayPressed: (DateTime date, List<Event> events) {
                     this.setState(() => _currentDate = date);
                   },
@@ -108,16 +117,17 @@ class CalendarState extends State<Calendar> {
                     return null;
                   },
                   weekFormat: false,
+                  weekDayPadding: EdgeInsets.only(),
                   markedDatesMap: _markedDateMap,
-                  height: 400.0,
+                  height: 350.0,
                   selectedDateTime: _currentDate,
                   daysHaveCircularBorder: null,
 
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-              SizedBox(
-                height: 100,
+              Expanded(
+                //height: 100,
                 //width: 200,
                 child: SingleChildScrollView(
                   child: Container(
@@ -133,7 +143,8 @@ class CalendarState extends State<Calendar> {
                             Appointment currentRow = _appointments[index];
 
                             return Row(children: <Widget>[
-                              Text(currentRow.patientName)
+                              Text(currentRow.patientName, style: TextStyle(fontSize: 16)),
+                              Padding(padding: EdgeInsets.only(bottom: 30),)
                             ]);
                           })),
                 ),
