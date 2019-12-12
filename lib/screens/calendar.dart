@@ -6,12 +6,16 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'patientdetail.dart';
 import '../blocs/appointment_bloc.dart';
+import '../models/appointment.dart';
+import 'package:intl/intl.dart';
 
+/*
 class Appointment {
   final String patientName;
 
   Appointment({this.patientName});
 }
+*/
 
 class Calendar extends StatefulWidget {
   Calendar({Key key}) : super(key: key);
@@ -23,12 +27,16 @@ class Calendar extends StatefulWidget {
 }
 
 class CalendarState extends State<Calendar> {
-  var _currentDate;
+  var _currentDate = DateTime.now().toLocal();
   var _markedDateMap;
+  var _selectedDate;
+
   ScrollController _scrollController = new ScrollController();
   AppointmentBloc _appointmentBloc = AppointmentBloc();
+  List<Appointment> _appointments;
+  List<Appointment> _filteredAppointments;
 
-
+  /*
   List<Appointment> _appointments = [
     Appointment(patientName: "Melinda"),
     Appointment(patientName: "Kelsey"),
@@ -49,22 +57,33 @@ class CalendarState extends State<Calendar> {
     Appointment(patientName: "Someone12"),
   ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
 
+  */
+
   @override
   void initState() {
     super.initState();
 
-    _appointmentBloc.appointmentsRefreshed.listen((response) {
+    _appointmentBloc.appointmentsRefreshed.listen((appointments) {
       if (mounted) {
+        _appointments = List();
+        _filteredAppointments= List();
 
-        /*
+        _appointments.addAll(appointments);
+        _filteredAppointments.addAll(appointments);
+
         setState(() {
 
-        });
-        */
 
+
+          _filteredAppointments.retainWhere(
+              (appointment) => appointment.startDate.compareTo(DateFormat.yMMMd()
+                  .format(_currentDate))==0);
+
+
+
+        });
       }
     }, onError: (err) {
-
       print("error $err");
     }, cancelOnError: false);
 
@@ -95,7 +114,8 @@ class CalendarState extends State<Calendar> {
                   //viewportFraction: .1,
 
                   onDayPressed: (DateTime date, List<Event> events) {
-                    this.setState(() => _currentDate = date);
+                    _dateChange(date, events);
+                    //this.setState(() => {_currentDate = date});
                   },
                   weekendTextStyle: TextStyle(
                     color: Colors.teal,
@@ -150,36 +170,53 @@ class CalendarState extends State<Calendar> {
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-              Expanded(
-                //height: 100,
-                //width: 200,
-                child: SingleChildScrollView(
-                  child: Container(
-                      // color: Colors.black,
-                      // padding: const EdgeInsets.only(
-                      //     left: 0, right: 0),
-                      child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          controller: _scrollController,
-                          shrinkWrap: true,
-                          itemCount: _appointments.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            Appointment currentRow = _appointments[index];
+              _filteredAppointments == null
+                  ? Container()
+                  : Expanded(
+                      //height: 100,
+                      //width: 200,
+                      child: SingleChildScrollView(
+                        child: Container(
+                            // color: Colors.black,
+                            // padding: const EdgeInsets.only(
+                            //     left: 0, right: 0),
+                            child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                controller: _scrollController,
+                                shrinkWrap: true,
+                                itemCount: _filteredAppointments.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  Appointment currentRow = _filteredAppointments[index];
 
-                            return InkWell(
-                                onTap: _openPatientDetail,
-                                child: Row(children: <Widget>[
-                                  Text(currentRow.patientName,
-                                      style: TextStyle(fontSize: 16)),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(bottom: 15, top: 15),
-                                  )
-                                ]));
-                          })),
-                ),
-              ),
+                                  return InkWell(
+                                      onTap: _openPatientDetail,
+                                      child: Row(children: <Widget>[
+                                        Text(
+                                            currentRow.apptStartTime
+                                                .toLocal()
+                                                .toString(),
+                                            style: TextStyle(fontSize: 16)),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              bottom: 15, top: 15),
+                                        )
+                                      ]));
+                                })),
+                      ),
+                    ),
             ]));
+  }
+
+  _dateChange(DateTime date, List<Event> events) {
+    _filteredAppointments.addAll(_appointments);
+
+    setState(() {
+      _currentDate = date;
+      _filteredAppointments
+          .retainWhere(
+              (appointment) => appointment.startDate.compareTo(DateFormat.yMMMd()
+              .format(_currentDate))==0);
+    });
   }
 
   _openPatientDetail() {

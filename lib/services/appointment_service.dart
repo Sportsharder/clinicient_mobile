@@ -4,11 +4,10 @@ import 'dart:convert';
 import '../models/export_models.dart';
 import '../constants/urls.dart';
 
-
 class AppointmentService {
-  Future refreshSchedule(int therapistID) async {
-    String url =
-        Urls().SERVER + Urls.APPOINTMENT; //+ therapistID.toString(); //+circleID + '?' + memberID;
+  Future<List<Appointment>> refreshSchedule(int therapistID) async {
+    String url = Urls().SERVER +
+        Urls.APPOINTMENT; //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
 
@@ -22,7 +21,16 @@ class AppointmentService {
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResponse = json.decode(response.body);
 
-      return;
+      // Appointment appointment = Appointment.fromJson(jsonResponse);
+
+   //   Map<String, dynamic> jsonSubset = jsonResponse[0];
+
+      List test = jsonResponse['recordset'] as List;
+
+      AppointmentCollection appointments =
+          AppointmentCollection.fromJSON(jsonResponse);
+
+      return appointments.appointments;
     } else {
       print(response.statusCode.toString() + ": " + response.body);
 
@@ -31,5 +39,4 @@ class AppointmentService {
       throw Exception(jsonResponse['msg']);
     }
   }
-
 }

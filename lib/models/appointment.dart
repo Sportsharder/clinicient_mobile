@@ -6,32 +6,34 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'patient.dart';
 
-Schedule scheduleFromJson(String str) => Schedule.fromJson(json.decode(str));
+Appointment appointmentFromJson(String str) => Appointment.fromJson(json.decode(str));
 
-String scheduleToJson(Schedule data) => json.encode(data.toJson());
+String appointmentToJson(Appointment data) => json.encode(data.toJson());
 
-class Schedule {
+class Appointment {
   Patient patient;
   String note;
   String status;
   String appointmentType;
   String scheduleCase;
-  DateTime date;
-  String stringDate;
+
+  DateTime apptStartTime;
+  String startDate;
   String startTime;
   String endTime;
+
   String therapist;
   String additionalStaff;
   String resources;
 
-  Schedule({
+  Appointment({
     this.patient,
     this.note,
     this.status,
     this.appointmentType,
     this.scheduleCase,
-    this.date,
-    this.stringDate,
+    this.apptStartTime,
+    this.startDate,
     this.startTime,
     this.endTime,
     this.therapist,
@@ -39,18 +41,25 @@ class Schedule {
     this.resources,
   });
 
-  factory Schedule.fromJson(Map<String, dynamic> json) => Schedule(
-        patient: Patient.fromJson(json["patient"]),
+  factory Appointment.fromJson(Map<String, dynamic> json) => Appointment(
+        //patient: Patient.fromJson(json["patient"]),
+        patient: Patient.fromJson(json),
         note: json["Note"],
         status: json["Status"],
         appointmentType: json["AppointmentType"],
         scheduleCase: json["Case"],
-        date: json["date"] == null
+        apptStartTime: json["ApptStartTime"] == null
             ? null
-            : DateTime.parse(json["date"]).toLocal(),
+            : DateTime.parse(json["ApptStartTime"]).toLocal(),
 
         // date:  "Date": date == null ? null : date.toUtc().toString(),
-        stringDate: json["StringDate"],
+
+  //  DateFormat.yMMMd().format(DateTime.parse(created.toString()));
+
+        startDate: json["ApptStartTime"] == null
+            ? null
+            : DateFormat.yMMMd()
+            .format(DateTime.parse(json["ApptStartTime"]).toLocal()),
         startTime: json["StartTime"],
         endTime: json["EndTime"],
         therapist: json["Therapist"],
@@ -64,12 +73,22 @@ class Schedule {
         "Status": status,
         "AppointmentType": appointmentType,
         "Case": scheduleCase,
-        "Date": date == null ? null : date.toUtc().toString(),
-        "StringDate": stringDate,
+        "ApptStartTime":
+            apptStartTime == null ? null : apptStartTime.toUtc().toString(),
+        "StartDate": startDate,
         "StartTime": startTime,
         "EndTime": endTime,
         "Therapist": therapist,
         "AdditionalStaff": additionalStaff,
         "Resources": resources,
       };
+}
+
+class AppointmentCollection {
+  final List<Appointment> appointments;
+
+  AppointmentCollection.fromJSON(Map<String, dynamic> json)
+      : appointments = (json['recordset'] as List)
+      .map((json) => Appointment.fromJson(json))
+      .toList();
 }

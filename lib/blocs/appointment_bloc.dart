@@ -7,14 +7,19 @@ import 'dart:io';
 class AppointmentBloc implements BlocBase {
   final _appointmentService = AppointmentService();
 
-  final _appointmentsRefreshed = PublishSubject<bool>();
-  Observable<bool> get appointmentsRefreshed => _appointmentsRefreshed.stream;
+  final _appointmentsRefreshed = PublishSubject<List<Appointment>>();
+  Observable<List<Appointment>> get appointmentsRefreshed =>
+      _appointmentsRefreshed.stream;
 
-  refreshAppointments(int therapistID) {
+  refreshAppointments(int therapistID) async {
     try {
-      _appointmentService.refreshSchedule(therapistID);
+      List<Appointment> appointments =
+          await _appointmentService.refreshSchedule(therapistID);
+
+      _appointmentsRefreshed.sink.add(appointments);
     } catch (err) {
       print(err);
+      _appointmentsRefreshed.sink.addError(err);
     }
   }
 
