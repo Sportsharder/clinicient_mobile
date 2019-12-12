@@ -6,10 +6,12 @@ import 'dart:io';
 class NavigationDrawer extends StatelessWidget {
   NavigationDrawer();
 
+  Color _menuItems = Colors.white70;
+
   Widget build(BuildContext context) {
     return Theme(
-        data: Theme.of(context)
-            .copyWith(canvasColor: Color(0xffEF9DFBE), splashColor: Colors.white),
+        data: Theme.of(context).copyWith(
+            canvasColor: Color(0xffEF9DFBE), splashColor: Colors.white),
         child: new Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -53,38 +55,65 @@ class NavigationDrawer extends StatelessWidget {
               ),
               ListTile(
                 contentPadding: EdgeInsets.only(left: 25),
-                leading: Icon(Icons.calendar_today, color: Colors.white),
+                leading: Icon(Icons.calendar_today, color: _menuItems),
                 title: Text(
                   'Schedule',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: _menuItems),
                 ),
                 onTap: () {
                   Navigator.pop(context);
 
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => Calendar()),
-                          (Route<dynamic> route) => false);
+                      MaterialPageRoute(builder: (context) => Calendar()),
+                      (Route<dynamic> route) => false);
                 },
               ),
               ListTile(
                 contentPadding: EdgeInsets.only(left: 25),
-                leading: Icon(Icons.videogame_asset, color: Colors.white),
+                leading: Icon(Icons.videogame_asset, color: _menuItems),
                 title: Text(
                   'Gamification',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: _menuItems, /*fontWeight: FontWeight.bold*/
+                  ),
                 ),
                 onTap: () {
                   Navigator.pop(context);
 
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => Gamification()),
-                          (Route<dynamic> route) => false);
+                      MaterialPageRoute(builder: (context) => Gamification()),
+                      (Route<dynamic> route) => false);
                 },
               ),
+              ListTile(
+                contentPadding: EdgeInsets.only(left: 25),
+                leading: Icon(Icons.lock, color: _menuItems),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(color: _menuItems),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Gamification()),
+                      (Route<dynamic> route) => false);
+                },
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 180),
+              ),
+              Padding(
+                  padding: EdgeInsets.only(left: 25),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset('assets/grayheads.png',
+                            width: 100, fit: BoxFit.fitWidth),
+                      ])),
             ],
           ),
         ));

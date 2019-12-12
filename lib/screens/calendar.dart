@@ -89,6 +89,7 @@ class CalendarState extends State<Calendar> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: NavigationDrawer(),
+        // drawer: CustomDrawer(),
         appBar: ClappBarr(
           title: widget.title,
         ),
@@ -273,8 +274,9 @@ class CalendarState extends State<Calendar> {
                                                                   currentRow.duration !=
                                                                           null
                                                                       ? currentRow
-                                                                          .duration
-                                                                          .toString() + ' minutes'
+                                                                              .duration
+                                                                              .toString() +
+                                                                          ' minutes'
                                                                       : '',
                                                                   style: TextStyle(
                                                                       fontSize:
