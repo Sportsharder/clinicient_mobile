@@ -193,7 +193,8 @@ class CalendarState extends State<Calendar> {
                                       _filteredAppointments[index];
 
                                   return Center(
-                                      child: Card(color: color,
+                                      child: Card(
+                                          color: color,
                                           child: Padding(
                                               padding: EdgeInsets.only(
                                                   left: 20,
