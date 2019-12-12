@@ -12,21 +12,31 @@ class TAB {
   static const int HEALTH = 2;
 }
 
-class Gamification extends StatelessWidget {
- // final UserFurnace userFurnace;
+class Gamification extends StatefulWidget {
+  // final UserFurnace userFurnace;
   final int tab;
 
   // FlutterManager({Key key, this.title}) : super(key: key);
-  Gamification({Key key, this.tab = 0,}) : super(key: key);
-  // final String title;
+  Gamification({
+    Key key,
+    this.tab = 0,
+  }) : super(key: key);
+// final String title;
 
+  @override
+  _GamificationState createState() => _GamificationState();
+}
+
+class _GamificationState extends State<Gamification> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
-      initialIndex: tab,
-      child: Scaffold(drawer: NavigationDrawer(),
-        appBar: AppBar(backgroundColor: Colors.teal,
+      initialIndex: widget.tab,
+      child: Scaffold(
+        drawer: NavigationDrawer(),
+        appBar: AppBar(
+          backgroundColor: Colors.teal,
           bottom: TabBar(
             indicatorColor: Colors.white,
             tabs: [

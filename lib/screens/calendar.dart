@@ -89,7 +89,7 @@ class CalendarState extends State<Calendar> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: NavigationDrawer(),
-        appBar: TapBar(
+        appBar: ClappBarr(
           title: widget.title,
         ),
         body: Column(
