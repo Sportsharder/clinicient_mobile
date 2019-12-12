@@ -3,8 +3,8 @@ import '../widgets/navigationdrawer.dart';
 import '../models/export_models.dart';
 import 'calendar.dart';
 import 'game_signoff_today.dart';
-import 'game_appts.dart';
-import 'game_other.dart';
+import 'game_signoff_week.dart';
+import 'game_signoff_month.dart';
 
 class TAB {
   static const int DETAIL = 0;
@@ -69,8 +69,8 @@ class _GamificationState extends State<Gamification> {
             body: TabBarView(
               children: [
                 GamificationSignoffToday(),
-                GamificationAppointments(),
-                GamificationOther(),
+                GamificationSignoffWeek(),
+                GamificationSignoffMonth(),
 
                 // FlutteringSettings()
               ],
