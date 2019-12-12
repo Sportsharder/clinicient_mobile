@@ -36,9 +36,13 @@ class _PatientDetailsState extends State<PatientDetail> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    widget.appointment.patient.firstName +
+                    (widget.appointment.patient.firstName == null
+                            ? ''
+                            : widget.appointment.patient.firstName) +
                         ' ' +
-                        widget.appointment.patient.lastName,
+                        (widget.appointment.patient.lastName == null
+                            ? ''
+                            : widget.appointment.patient.lastName),
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ])),
@@ -48,7 +52,13 @@ class _PatientDetailsState extends State<PatientDetail> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    '03/29/1987' + '      ' + '32',
+                    widget.appointment.patient.dateOfBirth == null
+                        ? ''
+                        : widget.appointment.patient.dateOfBirth +
+                            '      ' +
+                            (widget.appointment.patient.age == null
+                                ? ''
+                                : widget.appointment.patient.age.toString()),
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -65,8 +75,11 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  // Icon(Icons. ),
                   Text(
-                    'Female',
+                    widget.appointment.patient.gender == null
+                        ? ''
+                        : widget.appointment.patient.gender,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -120,7 +133,9 @@ class _PatientDetailsState extends State<PatientDetail> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    widget.appointment.caseName,
+                    widget.appointment.caseName == null
+                        ? ''
+                        : widget.appointment.caseName,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   /*Text(
@@ -201,7 +216,7 @@ class _PatientDetailsState extends State<PatientDetail> {
         }
       case 'John':
         {
-          retValue = 'assets/johny.png';
+          retValue = 'assets/johnny.png';
           break;
         }
       case 'Ted':
@@ -221,7 +236,7 @@ class _PatientDetailsState extends State<PatientDetail> {
         }
       default:
         {
-          retValue = 'assets/alexis.png';
+          retValue = 'assets/spongesil.png';
           break;
         }
     }

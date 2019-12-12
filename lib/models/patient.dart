@@ -32,7 +32,7 @@ class Patient {
   factory Patient.fromJson(Map<String, dynamic> json) => Patient(
         firstName: json["ClientFirstName"],
         lastName: json["ClientLastName"],
-        dateOfBirth: json["Date of Birth"],
+        dateOfBirth: json["DateOfBirth"],
         age: json["Age"],
         gender: json["Gender"],
         phoneNumber: json["PhoneNumber"],
@@ -43,7 +43,7 @@ class Patient {
   Map<String, dynamic> toJson() => {
         "ClientFirstName": firstName,
         "ClietLastName": lastName,
-        "Date of Birth": dateOfBirth,
+        "DateOfBirth": dateOfBirth,
         "Age": age,
         "Gender": gender,
         "PhoneNumber": phoneNumber,
