@@ -4,11 +4,11 @@ import 'dart:convert';
 import '../models/export_models.dart';
 import '../constants/urls.dart';
 
-class AppointmentService {
-  Future<List<Appointment>> refreshSchedule(int therapistID) async {
+class GamificationService {
+  Future<List<SignedVisit>> refreshSignoffLeaderboard(String filter) async {
     String url = Urls().SERVER +
-        Urls.APPOINTMENT +
-        '5'; //+ therapistID.toString(); //+circleID + '?' + memberID;
+        Urls.GAMIFICATION +
+        filter; //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
 
@@ -28,10 +28,10 @@ class AppointmentService {
 
       List test = jsonResponse['recordset'] as List;
 
-      AppointmentCollection appointments =
-          AppointmentCollection.fromJSON(jsonResponse);
+      SignedVisitCollection signedVisits =
+          SignedVisitCollection.fromJSON(jsonResponse);
 
-      return appointments.appointments;
+      return signedVisits.signedVisits;
     } else {
       print(response.statusCode.toString() + ": " + response.body);
 

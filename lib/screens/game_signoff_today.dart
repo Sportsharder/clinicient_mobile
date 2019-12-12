@@ -1,14 +1,40 @@
 import 'package:flutter/material.dart';
+import '../blocs/gamification_bloc.dart';
 
-class GamificationSignoff extends StatefulWidget {
-  GamificationSignoff({Key key}) : super(key: key);
+class GamificationSignoffToday extends StatefulWidget {
+  GamificationSignoffToday({Key key}) : super(key: key);
 
   String title = "Gamification signoff!!";
   @override
   _GamificationSignoffState createState() => _GamificationSignoffState();
 }
 
-class _GamificationSignoffState extends State<GamificationSignoff> {
+class _GamificationSignoffState extends State<GamificationSignoffToday> {
+
+  ScrollController _scrollController = new ScrollController();
+  GamificationBloc _gamificationBloc = GamificationBloc();
+
+  List _scores;
+
+  @override
+  void initState() {
+    super.initState();
+
+
+    _gamificationBloc.signoffLeaderboardRefreshed.listen((results) {
+      if (mounted) {
+        setState(() {
+        _scores = results;
+
+        });
+      }
+    }, onError: (err) {
+      print("error $err");
+    }, cancelOnError: false);
+
+    _gamificationBloc.refreshSignoffLeaderboard('Today');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
