@@ -30,54 +30,63 @@ class Gamification extends StatefulWidget {
 class _GamificationState extends State<Gamification> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      initialIndex: widget.tab,
-      child: Scaffold(
-        drawer: NavigationDrawer(),
-        appBar: AppBar(
-          backgroundColor: Colors.teal,
-          bottom: TabBar(
-            indicatorColor: Colors.white,
-            tabs: [
-              Text('Sign Offs',
-                  style: TextStyle(color: Colors.white, fontSize: 18.0)),
-              Text('Appts',
-                  style: TextStyle(color: Colors.white, fontSize: 18.0)),
-              Text('Other!!',
-                  style: TextStyle(color: Colors.white, fontSize: 18.0)),
-              // Text('FLUTTERIN', style: TextStyle(color: Colors.white, fontSize: 18.0)),
-              //Tab(icon: Icon(Icons.directions_car)),
-              //Tab(icon: Icon(Icons.directions_transit)),
-              //  Tab(icon: Icon(Icons.directions_bike)),
-            ],
-          ),
-          title: Text('Gamification!!'),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Calendar(),
-                    ),
-                    ModalRoute.withName("/home"));
-              },
-            )
-          ],
-        ),
-        //drawer: NavigationDrawer(),
-        body: TabBarView(
-          children: [
-            GamificationSignoff(),
-            GamificationAppointments(),
-            GamificationOther(),
+    return WillPopScope(
+        onWillPop: () => _goHome(),
+        child: DefaultTabController(
+          length: 3,
+          initialIndex: widget.tab,
+          child: Scaffold(
+            drawer: NavigationDrawer(),
+            appBar: AppBar(
+              backgroundColor: Color(0xffEF8D69F),
+              bottom: TabBar(
+                indicatorColor: Colors.white,
+                tabs: [
+                  Text('Sign Offs',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                  Text('Appts',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                  Text('Other!!',
+                      style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                  // Text('FLUTTERIN', style: TextStyle(color: Colors.white, fontSize: 18.0)),
+                  //Tab(icon: Icon(Icons.directions_car)),
+                  //Tab(icon: Icon(Icons.directions_transit)),
+                  //  Tab(icon: Icon(Icons.directions_bike)),
+                ],
+              ),
+              title: Text('Gamification!!'),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.home),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Calendar(),
+                        ),
+                        ModalRoute.withName("/home"));
+                  },
+                )
+              ],
+            ),
+            //drawer: NavigationDrawer(),
+            body: TabBarView(
+              children: [
+                GamificationSignoff(),
+                GamificationAppointments(),
+                GamificationOther(),
 
-            // FlutteringSettings()
-          ],
-        ),
-      ),
-    );
+                // FlutteringSettings()
+              ],
+            ),
+          ),
+        ));
+  }
+
+  _goHome() {
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => Calendar()),
+        (Route<dynamic> route) => false);
   }
 }

@@ -174,7 +174,7 @@ class _PatientDetailsState extends State<PatientDetail> {
           key: _scaffoldKey,
           appBar: AppBar(
             title: Text('Patient Details'),
-            backgroundColor: Colors.teal,
+            backgroundColor: Color(0xffEF8D69F),
           ),
           body: makeBody,
         ));
