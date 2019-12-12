@@ -285,7 +285,7 @@ class CalendarState extends State<Calendar> {
                                                                 padding: EdgeInsets
                                                                     .only(
                                                                         left:
-                                                                            60),
+                                                                            15),
                                                                 child: Text(
                                                                     currentRow.appointmentType !=
                                                                             null
