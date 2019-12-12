@@ -115,7 +115,9 @@ class _PatientDetailsState extends State<PatientDetail> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'alexis@theroses.com',
+                    widget.appointment.patient.email == null
+                        ? ''
+                        : widget.appointment.patient.email,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -172,7 +174,7 @@ class _PatientDetailsState extends State<PatientDetail> {
           key: _scaffoldKey,
           appBar: AppBar(
             title: Text('Patient Details'),
-            backgroundColor: Colors.teal,
+            backgroundColor: Color(0xffEF8D69F),
           ),
           body: makeBody,
         ));

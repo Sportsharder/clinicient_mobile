@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../screens/calendar.dart';
 import 'dart:io';
 
-class TapBar extends StatefulWidget implements PreferredSizeWidget {
+class ClappBarr extends StatefulWidget implements PreferredSizeWidget {
   final String title;
-  TapBar({Key key, this.title})
+  ClappBarr({Key key, this.title})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -12,17 +12,17 @@ class TapBar extends StatefulWidget implements PreferredSizeWidget {
   final Size preferredSize; // default is 56.0
 
   @override
-  _TapBarState createState() => _TapBarState();
+  _ClappBarrState createState() => _ClappBarrState();
 }
 
-class _TapBarState extends State<TapBar> {
+class _ClappBarrState extends State<ClappBarr> {
 //class Tapbar extends StatelessWidget {
   //Tapbar();
 
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(widget.title),
-      backgroundColor: Colors.teal,
+      backgroundColor: Color(0xffEF8D69F),
       actions: <Widget>[
         Padding(
             padding: const EdgeInsets.only(right: 10),
@@ -31,9 +31,8 @@ class _TapBarState extends State<TapBar> {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => Calendar()),
-                          (Route<dynamic> route) => false);
+                      MaterialPageRoute(builder: (context) => Calendar()),
+                      (Route<dynamic> route) => false);
                 }))
       ],
     );
