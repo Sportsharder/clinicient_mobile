@@ -23,7 +23,6 @@ class _GamificationSignoffState extends State<GamificationSignoff> {
                   backgroundColor: Color(0xffEF8D69F),
                 ),
               ),
-
               Expanded(
                 child: Image.asset('assets/stevie.png',
                     //fit: BoxFit.fill,
@@ -59,7 +58,6 @@ class _GamificationSignoffState extends State<GamificationSignoff> {
                       backgroundColor: Color(0xffEF8D69F),
                     ),
                   ),
-
                   Expanded(
                     child: Image.asset('assets/stevie.png',
                         //fit: BoxFit.fill,
