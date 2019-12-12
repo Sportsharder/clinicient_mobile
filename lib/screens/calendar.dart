@@ -181,11 +181,19 @@ class CalendarState extends State<Calendar> {
                                 shrinkWrap: true,
                                 itemCount: _filteredAppointments.length,
                                 itemBuilder: (BuildContext context, int index) {
+                                  Color color;
+
+                                  if (index.isEven) {
+                                    color = Colors.white70;
+                                  } else {
+                                    color = Colors.white30;
+                                  }
+
                                   Appointment currentRow =
                                       _filteredAppointments[index];
 
                                   return Center(
-                                      child: Card(
+                                      child: Card(color: color,
                                           child: Padding(
                                               padding: EdgeInsets.only(
                                                   left: 20,
