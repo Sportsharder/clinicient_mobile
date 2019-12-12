@@ -16,7 +16,9 @@ class AppointmentBloc implements BlocBase {
       List<Appointment> appointments =
           await _appointmentService.refreshSchedule(therapistID);
 
-      _appointmentsRefreshed.sink.add(appointments);
+      if (appointments != null) {
+        _appointmentsRefreshed.sink.add(appointments);
+      }
     } catch (err) {
       print(err);
       _appointmentsRefreshed.sink.addError(err);

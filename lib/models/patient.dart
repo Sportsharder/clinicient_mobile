@@ -12,7 +12,7 @@ class Patient {
   String firstName;
   String lastName;
   String dateOfBirth;
-  String age;
+  int age;
   String gender;
   String phoneNumber;
   String phoneType;
