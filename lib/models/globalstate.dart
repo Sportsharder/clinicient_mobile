@@ -11,7 +11,5 @@ class GlobalState {
   bool loggingOut = false;
 
   //home variables
-  double lastSelectedIndex;
-  String lastSelectedFilter;
-  bool sortAlpha;
+  DateTime lastSelectedDate;
 }

@@ -7,7 +7,8 @@ import '../constants/urls.dart';
 class AppointmentService {
   Future<List<Appointment>> refreshSchedule(int therapistID) async {
     String url = Urls().SERVER +
-        Urls.APPOINTMENT; //+ therapistID.toString(); //+circleID + '?' + memberID;
+        Urls.APPOINTMENT +
+        '/5'; //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
 

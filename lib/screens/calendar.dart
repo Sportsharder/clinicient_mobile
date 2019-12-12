@@ -6,7 +6,7 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/classes/event_list.dart';
 import 'patientdetail.dart';
 import '../blocs/appointment_bloc.dart';
-import '../models/appointment.dart';
+import '../models/export_models.dart';
 import 'package:intl/intl.dart';
 
 /*
@@ -27,7 +27,7 @@ class Calendar extends StatefulWidget {
 }
 
 class CalendarState extends State<Calendar> {
-  var _currentDate = DateTime.now().toLocal();
+  var _currentDate; // = DateTime.now().toLocal();
   var _markedDateMap;
   var _selectedDate;
 
@@ -36,32 +36,15 @@ class CalendarState extends State<Calendar> {
   List<Appointment> _appointments;
   List<Appointment> _filteredAppointments;
 
-  /*
-  List<Appointment> _appointments = [
-    Appointment(patientName: "Melinda"),
-    Appointment(patientName: "Kelsey"),
-    Appointment(patientName: "Serhat"),
-    Appointment(patientName: "Joel"),
-    Appointment(patientName: "Jeremy"),
-    Appointment(patientName: "Someone1"),
-    Appointment(patientName: "Someone2"),
-    Appointment(patientName: "Someone3"),
-    Appointment(patientName: "Someone4"),
-    Appointment(patientName: "Someone5"),
-    Appointment(patientName: "Someone6"),
-    Appointment(patientName: "Someone7"),
-    Appointment(patientName: "Someone8"),
-    Appointment(patientName: "Someone9"),
-    Appointment(patientName: "Someone10"),
-    Appointment(patientName: "Someone11"),
-    Appointment(patientName: "Someone12"),
-  ]; //, "Kelsey", "Serhat", "Joel,", "Jeremy"];
-
-  */
-
   @override
   void initState() {
     super.initState();
+
+    if (globalState.lastSelectedDate == null) {
+      _currentDate = DateTime.now().toLocal();
+    } else {
+      _currentDate = globalState.lastSelectedDate;
+    }
 
     _appointmentBloc.appointmentsRefreshed.listen((appointments) {
       if (mounted) {
@@ -326,6 +309,8 @@ class CalendarState extends State<Calendar> {
   }
 
   _openPatientDetail(Appointment appointment) {
+    globalState.lastSelectedDate = _currentDate;
+
     Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
