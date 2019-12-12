@@ -47,6 +47,21 @@ class GamificationBloc implements BlocBase {
     }
   }
 
+  refreshSlackingByCount() async {
+    try {
+      List<SlackingByCount> slackingByCount =
+      await _gamificationService.refreshSlackerBoardByCount();
+
+      if (slackingByCount != null) {
+        _slackingByCountRefreshed.sink.add(slackingByCount);
+      }
+    } catch (err) {
+      print(err);
+      _slackingByCountRefreshed.sink.addError(err);
+    }
+  }
+
+
   dispose() async {
     await _signOffLeaderboardRefreshed.drain();
     _signOffLeaderboardRefreshed.close();

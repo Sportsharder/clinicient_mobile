@@ -7,10 +7,10 @@ String slackingByCountToJson(SlackingByCount data) =>
     json.encode(data.toJson());
 
 class SlackingByCount {
-  String staffId;
+  int staffId;
   String staffFirstName;
   String staffLastName;
-  String totalUnsignedVisits;
+  int totalUnsignedVisits;
 
   SlackingByCount({
     this.staffId,

@@ -6,6 +6,7 @@ import 'game_signoff_today.dart';
 import 'game_signoff_week.dart';
 import 'game_signoff_month.dart';
 import 'slackerboard_bytime.dart';
+import 'slackerboard_bycount.dart';
 
 class TAB {
   static const int DETAIL = 0;
@@ -68,7 +69,7 @@ class _SlackerboardState extends State<Slackerboard> {
             body: TabBarView(
               children: [
                 SlackerBoardByTime(),
-                GamificationSignoffWeek(),
+                SlackerBoardByCount(),
 
                 // FlutteringSettings()
               ],
