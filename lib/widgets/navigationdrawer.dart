@@ -9,7 +9,7 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
         data: Theme.of(context)
-            .copyWith(canvasColor: Colors.teal, splashColor: Colors.white),
+            .copyWith(canvasColor: Color(0xffEF9DFBE), splashColor: Colors.white),
         child: new Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
@@ -49,7 +49,7 @@ class NavigationDrawer extends StatelessWidget {
                     ),
                   ],
                 ),
-                decoration: new BoxDecoration(color: Colors.teal),
+                decoration: new BoxDecoration(color: Color(0xffEF8D69F)),
               ),
               ListTile(
                 contentPadding: EdgeInsets.only(left: 25),
