@@ -6,12 +6,12 @@ import 'dart:io';
 class NavigationDrawer extends StatelessWidget {
   NavigationDrawer();
 
-  Color _menuItems = Colors.white70;
+  Color _menuItems = Colors.grey;
 
   Widget build(BuildContext context) {
     return Theme(
         data: Theme.of(context).copyWith(
-            canvasColor: Color(0xffEF9DFBE), splashColor: Colors.white),
+            canvasColor: Color(0xffEfdf4e9), splashColor: Colors.white),
         child: new Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
