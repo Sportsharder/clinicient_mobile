@@ -11,6 +11,14 @@ class GamificationBloc implements BlocBase {
   Observable<List<SignedVisit>> get signoffLeaderboardRefreshed =>
       _signOffLeaderboardRefreshed.stream;
 
+  final _slackingByTimeRefreshed = PublishSubject<List<SlackingByTime>>();
+  Observable<List<SlackingByTime>> get slackingByTimeRefreshed =>
+      _slackingByTimeRefreshed.stream;
+
+  final _slackingByCountRefreshed = PublishSubject<List<SlackingByCount>>();
+  Observable<List<SlackingByCount>> get slackingByCountRefreshed =>
+      _slackingByCountRefreshed.stream;
+
   refreshSignoffLeaderboard(String filter) async {
     try {
       List<SignedVisit> signedVisits =
@@ -25,9 +33,28 @@ class GamificationBloc implements BlocBase {
     }
   }
 
+  refreshSlackingByTime() async {
+    try {
+      List<SlackingByTime> slackingByTime =
+          await _gamificationService.refreshSlackerBoardByTime();
+
+      if (slackingByTime != null) {
+        _slackingByTimeRefreshed.sink.add(slackingByTime);
+      }
+    } catch (err) {
+      print(err);
+      _slackingByTimeRefreshed.sink.addError(err);
+    }
+  }
+
   dispose() async {
-    //_movieId.close();
     await _signOffLeaderboardRefreshed.drain();
     _signOffLeaderboardRefreshed.close();
+
+    await _slackingByTimeRefreshed.drain();
+    _slackingByTimeRefreshed.close();
+
+    await _slackingByCountRefreshed.drain();
+    _slackingByCountRefreshed.close();
   }
 }

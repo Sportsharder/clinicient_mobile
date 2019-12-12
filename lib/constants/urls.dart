@@ -9,7 +9,7 @@ class Urls {
   static const String APPOINTMENT = 'appointment/';
   //static const String GAMIFICATION = 'gamification/';
   static const String GAMIFICATIONSIGNOFF = 'gamification/signedvisits/';
-  static const String GAMIFICATIONUNSIGNED = 'gamification/unsigned/';
+  static const String GAMIFICATIONSLACK = 'gamification/unsigned/';
 
   Urls() {
     if (kReleaseMode) {

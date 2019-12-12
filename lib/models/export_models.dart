@@ -4,3 +4,5 @@ export 'appointment.dart';
 export 'signoffs.dart';
 export 'case.dart';
 export 'signedvisit.dart';
+export 'slackingbytime.dart';
+export 'slackingbycount.dart';

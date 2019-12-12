@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/calendar.dart';
 import '../screens/gamification.dart';
+import '../screens/slackerboard.dart';
 import 'dart:io';
 
 class NavigationDrawer extends StatelessWidget {
@@ -84,7 +85,25 @@ class NavigationDrawer extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) => Gamification()),
-                      (Route<dynamic> route) => false);
+                          (Route<dynamic> route) => false);
+                },
+              ),
+              ListTile(
+                contentPadding: EdgeInsets.only(left: 25),
+                leading: Icon(Icons.mood_bad, color: _menuItems),
+                title: Text(
+                  'Unsigned Visit Slackerboard',
+                  style: TextStyle(
+                    color: _menuItems, /*fontWeight: FontWeight.bold*/
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Slackerboard()),
+                          (Route<dynamic> route) => false);
                 },
               ),
               ListTile(
