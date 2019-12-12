@@ -24,7 +24,7 @@ class _PatientDetailsState extends State<PatientDetail> {
       children: <Widget>[
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20),
-          child: Image.asset('assets/alexis.png',
+          child: Image.asset(_getPatientImage(),
               //fit: BoxFit.fill,
               // height: 40,
               //   width: 40,
@@ -168,5 +168,64 @@ class _PatientDetailsState extends State<PatientDetail> {
         context,
         MaterialPageRoute(builder: (context) => Calendar()),
         (Route<dynamic> route) => false);
+  }
+
+  String _getPatientImage() {
+    String retValue;
+
+    switch (widget.appointment.patient.firstName) {
+      case 'Alexis':
+        {
+          retValue = 'assets/alexis.png';
+          break;
+        }
+      case 'Stevie':
+        {
+          retValue = 'assets/stevie.png';
+          break;
+        }
+      case 'Moira':
+        {
+          retValue = 'assets/moira.png';
+          break;
+        }
+      case 'Roland':
+        {
+          retValue = 'assets/roland.png';
+          break;
+        }
+      case 'Mutt':
+        {
+          retValue = 'assets/mutt.png';
+          break;
+        }
+      case 'John':
+        {
+          retValue = 'assets/johny.png';
+          break;
+        }
+      case 'Ted':
+        {
+          retValue = 'assets/ted.png';
+          break;
+        }
+      case 'David':
+        {
+          retValue = 'assets/david.png';
+          break;
+        }
+      case 'Twila':
+        {
+          retValue = 'assets/twila.png';
+          break;
+        }
+      default:
+        {
+          retValue = 'assets/alexis.png';
+          break;
+        }
+    }
+
+    return retValue;
   }
 }
