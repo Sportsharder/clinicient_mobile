@@ -15,7 +15,7 @@ class Appointment {
   String note;
   String status;
   String appointmentType;
-  String scheduleCase;
+  String caseName;
 
   DateTime apptStartTime;
   String startDate;
@@ -32,7 +32,7 @@ class Appointment {
     this.note,
     this.status,
     this.appointmentType,
-    this.scheduleCase,
+    this.caseName,
     this.apptStartTime,
     this.startDate,
     this.startTime,
@@ -49,7 +49,7 @@ class Appointment {
         note: json["Note"],
         status: json["Status"],
         appointmentType: json["AppointmentType"],
-        scheduleCase: json["Case"],
+        caseName: json["CaseName"],
         apptStartTime: json["ApptStartTime"] == null
             ? null
             : DateTime.parse(json["ApptStartTime"]).toLocal(),
@@ -75,7 +75,7 @@ class Appointment {
         "Note": note,
         "Status": status,
         "AppointmentType": appointmentType,
-        "Case": scheduleCase,
+        "Case": caseName,
         "ApptStartTime":
             apptStartTime == null ? null : apptStartTime.toUtc().toString(),
         "StartDate": startDate,

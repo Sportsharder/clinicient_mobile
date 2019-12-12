@@ -193,7 +193,9 @@ class CalendarState extends State<Calendar> {
                                                   top: 10,
                                                   bottom: 10),
                                               child: InkWell(
-                                                  onTap: _openPatientDetail,
+                                                  onTap: () =>
+                                                      _openPatientDetail(
+                                                          currentRow),
                                                   child:
                                                       Column(children: <Widget>[
                                                     Row(
@@ -311,10 +313,13 @@ class CalendarState extends State<Calendar> {
     });
   }
 
-  _openPatientDetail() {
+  _openPatientDetail(Appointment appointment) {
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => PatientDetail()),
+        MaterialPageRoute(
+            builder: (context) => PatientDetail(
+                  appointment,
+                )),
         ModalRoute.withName("/home"));
   }
 }
