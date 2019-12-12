@@ -30,24 +30,24 @@ class Patient {
   });
 
   factory Patient.fromJson(Map<String, dynamic> json) => Patient(
-    firstName: json["FirstName"],
-    lastName: json["LastName"],
-    dateOfBirth: json["Date of Birth"],
-    age: json["Age"],
-    gender: json["Gender"],
-    phoneNumber: json["PhoneNumber"],
-    phoneType: json["PhoneType"],
-    email: json["Email"],
-  );
+        firstName: json["ClientFirstName"],
+        lastName: json["ClientLastName"],
+        dateOfBirth: json["Date of Birth"],
+        age: json["Age"],
+        gender: json["Gender"],
+        phoneNumber: json["PhoneNumber"],
+        phoneType: json["PhoneType"],
+        email: json["Email"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "FirstName": firstName,
-    "LastName": lastName,
-    "Date of Birth": dateOfBirth,
-    "Age": age,
-    "Gender": gender,
-    "PhoneNumber": phoneNumber,
-    "PhoneType": phoneType,
-    "Email": email,
-  };
+        "ClientFirstName": firstName,
+        "ClietLastName": lastName,
+        "Date of Birth": dateOfBirth,
+        "Age": age,
+        "Gender": gender,
+        "PhoneNumber": phoneNumber,
+        "PhoneType": phoneType,
+        "Email": email,
+      };
 }

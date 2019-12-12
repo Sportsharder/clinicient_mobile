@@ -66,21 +66,16 @@ class CalendarState extends State<Calendar> {
     _appointmentBloc.appointmentsRefreshed.listen((appointments) {
       if (mounted) {
         _appointments = List();
-        _filteredAppointments= List();
+        _filteredAppointments = List();
 
         _appointments.addAll(appointments);
         _filteredAppointments.addAll(appointments);
 
         setState(() {
-
-
-
-          _filteredAppointments.retainWhere(
-              (appointment) => appointment.startDate.compareTo(DateFormat.yMMMd()
-                  .format(_currentDate))==0);
-
-
-
+          _filteredAppointments.retainWhere((appointment) =>
+              appointment.startDate
+                  .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
+              0);
         });
       }
     }, onError: (err) {
@@ -186,21 +181,118 @@ class CalendarState extends State<Calendar> {
                                 shrinkWrap: true,
                                 itemCount: _filteredAppointments.length,
                                 itemBuilder: (BuildContext context, int index) {
-                                  Appointment currentRow = _filteredAppointments[index];
+                                  Appointment currentRow =
+                                      _filteredAppointments[index];
 
-                                  return InkWell(
-                                      onTap: _openPatientDetail,
-                                      child: Row(children: <Widget>[
-                                        Text(
-                                            currentRow.apptStartTime
-                                                .toLocal()
-                                                .toString(),
-                                            style: TextStyle(fontSize: 16)),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              bottom: 15, top: 15),
-                                        )
-                                      ]));
+                                  return Center(
+                                      child: Card(
+                                          child: Padding(
+                                              padding: EdgeInsets.only(
+                                                  left: 20,
+                                                  right: 20,
+                                                  top: 10,
+                                                  bottom: 10),
+                                              child: InkWell(
+                                                  onTap: _openPatientDetail,
+                                                  child:
+                                                      Column(children: <Widget>[
+                                                    Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceAround,
+                                                        children: <Widget>[
+                                                          Text(
+                                                              currentRow
+                                                                  .startDate,
+                                                              style: TextStyle(
+                                                                  fontSize:
+                                                                      18)),
+                                                          Spacer(flex: 1),
+                                                          Expanded(
+                                                              flex: 2,
+                                                              child: Container(
+                                                                  child: Row(
+                                                                      children: <
+                                                                          Widget>[
+                                                                    Text(
+                                                                        currentRow.patient.firstName !=
+                                                                                null
+                                                                            ? currentRow
+                                                                                .patient.firstName
+                                                                            : '',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              18,
+                                                                        )),
+                                                                    Text(' ',
+                                                                        style:
+                                                                            TextStyle(
+                                                                          fontSize:
+                                                                              16,
+                                                                        )),
+                                                                    Text(
+                                                                        currentRow.patient.lastName !=
+                                                                                null
+                                                                            ? currentRow
+                                                                                .patient.lastName
+                                                                            : '',
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                16)),
+                                                                  ]))),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom: 15,
+                                                                    top: 15),
+                                                          )
+                                                        ]),
+                                                    Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceAround,
+                                                        children: <Widget>[
+                                                          Padding(
+                                                              padding: EdgeInsets
+                                                                  .only(
+                                                                      left: 20),
+                                                              child: Text(
+                                                                  currentRow.duration !=
+                                                                          null
+                                                                      ? currentRow
+                                                                          .duration
+                                                                          .toString()
+                                                                      : '',
+                                                                  style: TextStyle(
+                                                                      fontSize:
+                                                                          18))),
+                                                          Spacer(flex: 1),
+                                                          Expanded(
+                                                            flex: 2,
+                                                            child: Padding(
+                                                                padding: EdgeInsets
+                                                                    .only(
+                                                                        left:
+                                                                            60),
+                                                                child: Text(
+                                                                    currentRow.appointmentType !=
+                                                                            null
+                                                                        ? currentRow
+                                                                            .appointmentType
+                                                                        : '',
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            16))),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom: 15,
+                                                                    top: 15),
+                                                          )
+                                                        ])
+                                                  ])))));
                                 })),
                       ),
                     ),
@@ -212,10 +304,10 @@ class CalendarState extends State<Calendar> {
 
     setState(() {
       _currentDate = date;
-      _filteredAppointments
-          .retainWhere(
-              (appointment) => appointment.startDate.compareTo(DateFormat.yMMMd()
-              .format(_currentDate))==0);
+      _filteredAppointments.retainWhere((appointment) =>
+          appointment.startDate
+              .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
+          0);
     });
   }
 

@@ -25,6 +25,7 @@ class Appointment {
   String therapist;
   String additionalStaff;
   String resources;
+  int duration;
 
   Appointment({
     this.patient,
@@ -39,6 +40,7 @@ class Appointment {
     this.therapist,
     this.additionalStaff,
     this.resources,
+    this.duration,
   });
 
   factory Appointment.fromJson(Map<String, dynamic> json) => Appointment(
@@ -65,6 +67,7 @@ class Appointment {
         therapist: json["Therapist"],
         additionalStaff: json["AdditionalStaff"],
         resources: json["Resources"],
+        duration: json["ApptLength"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -81,6 +84,7 @@ class Appointment {
         "Therapist": therapist,
         "AdditionalStaff": additionalStaff,
         "Resources": resources,
+        "ApptLength": duration,
       };
 }
 
