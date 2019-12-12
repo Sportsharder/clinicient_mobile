@@ -184,9 +184,9 @@ class CalendarState extends State<Calendar> {
                                   Color color;
 
                                   if (index.isEven) {
-                                    color = Colors.white70;
-                                  } else {
                                     color = Colors.white30;
+                                  } else {
+                                    color = Colors.white70;
                                   }
 
                                   Appointment currentRow =
@@ -273,7 +273,7 @@ class CalendarState extends State<Calendar> {
                                                                           null
                                                                       ? currentRow
                                                                           .duration
-                                                                          .toString()
+                                                                          .toString() + ' minutes'
                                                                       : '',
                                                                   style: TextStyle(
                                                                       fontSize:
