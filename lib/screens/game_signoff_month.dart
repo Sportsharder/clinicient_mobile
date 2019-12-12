@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../blocs/gamification_bloc.dart';
 import '../models/export_models.dart';
+import '../widgets/game_signoff_widget.dart';
 
 class GamificationSignoffMonth extends StatefulWidget {
   GamificationSignoffMonth({Key key}) : super(key: key);
@@ -37,81 +38,32 @@ class _GamificationSignoffState extends State<GamificationSignoffMonth> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.start, children: <
-                    Widget>[
-      Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-        _scores == null
-            ? Container()
-            : Expanded(
-                //height: 100,
-                //width: 200,
-                child: SingleChildScrollView(
-                    child: Container(
-                        // color: Colors.black,
-                        // padding: const EdgeInsets.only(
-                        //     left: 0, right: 0),
-                        child: ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            controller: _scrollController,
-                            shrinkWrap: true,
-                            itemCount: _scores.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              SignedVisit currentRow = _scores[index];
-
-                              return Padding(
-                                  padding: EdgeInsets.only(top: 10, bottom: 10),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: CircleAvatar(
-                                            child: Text((index + 1).toString()),
-                                            backgroundColor: Color(0xffEF8D69F),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Image.asset(
-                                              _getTherapistImage(
-                                                  currentRow.staffFirstName),
-                                              //fit: BoxFit.fill,
-                                              //height: 40,
-                                              width: 65,
-                                              height: 50,
-                                              fit: BoxFit.fitWidth),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            currentRow.staffFirstName,
-                                            style: TextStyle(fontSize: 16),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            currentRow.staffLastName,
-                                            style: TextStyle(fontSize: 16),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 8),
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            currentRow.signedVisits.toString(),
-                                            style: TextStyle(fontSize: 16),
-                                          ),
-                                        ),
-                                      ]));
-                            }))))
-      ])
-    ])));
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+            _scores == null
+                ? Container()
+                : Expanded(
+                    //height: 100,
+                    //width: 200,
+                    child: SingleChildScrollView(
+                        child: Container(
+                            // color: Colors.black,
+                            // padding: const EdgeInsets.only(
+                            //     left: 0, right: 0),
+                            child: ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                controller: _scrollController,
+                                shrinkWrap: true,
+                                itemCount: _scores.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  SignedVisit currentRow = _scores[index];
+                                  return GamificationSignoffWidget(
+                                      currentRow, index);
+                                }))))
+          ])
+        ])));
   }
 
   String _getTherapistImage(String firstName) {
