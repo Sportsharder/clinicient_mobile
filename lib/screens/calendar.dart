@@ -113,19 +113,20 @@ class CalendarState extends State<Calendar> {
                     //this.setState(() => {_currentDate = date});
                   },
                   weekendTextStyle: TextStyle(
-                    color: Colors.teal,
+                    color: Colors.blueAccent,
                   ),
                   thisMonthDayBorderColor: Colors.grey,
-                  todayButtonColor: Colors.teal,
+                  selectedDayButtonColor: Colors.deepOrangeAccent,
+                  todayButtonColor: Colors.deepOrangeAccent,
                   headerTextStyle: TextStyle(
-                      color: Colors.teal,
+                      color: Colors.deepOrangeAccent,
                       fontWeight: FontWeight.normal,
                       fontSize: 16),
                   weekdayTextStyle: TextStyle(
-                      color: Colors.teal,
+                      color: Colors.blueGrey,
                       fontWeight: FontWeight.normal,
                       fontSize: 12),
-                  iconColor: Colors.teal,
+                  iconColor: Colors.orangeAccent,
                   dayPadding: 1,
                   customDayBuilder: (
                     /// you can provide your own build function to make custom day containers
