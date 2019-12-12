@@ -7,7 +7,9 @@ class Urls {
   static const String APIKEY = 'J73Hpqj362J4psX7jyhXdftbxSPYkE9CrjWShz9r';
   static const String PATIENT = 'patient/';
   static const String APPOINTMENT = 'appointment/';
-  static const String GAMIFICATION = 'gamification/';
+  //static const String GAMIFICATION = 'gamification/';
+  static const String GAMIFICATIONSIGNOFF = 'gamification/signedvisits/';
+  static const String GAMIFICATIONUNSIGNED = 'gamification/unsigned/';
 
   Urls() {
     if (kReleaseMode) {

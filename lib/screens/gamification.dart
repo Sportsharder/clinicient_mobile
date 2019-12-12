@@ -50,7 +50,7 @@ class _GamificationState extends State<Gamification> {
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ],
               ),
-              title: Text('Gamification!!'),
+              title: Text('Sign Off Leaderboard'),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.home),

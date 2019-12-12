@@ -73,7 +73,7 @@ class NavigationDrawer extends StatelessWidget {
                 contentPadding: EdgeInsets.only(left: 25),
                 leading: Icon(Icons.videogame_asset, color: _menuItems),
                 title: Text(
-                  'Gamification',
+                  'Sign Off Leaderboard',
                   style: TextStyle(
                     color: _menuItems, /*fontWeight: FontWeight.bold*/
                   ),

@@ -7,7 +7,7 @@ import '../constants/urls.dart';
 class GamificationService {
   Future<List<SignedVisit>> refreshSignoffLeaderboard(String filter) async {
     String url = Urls().SERVER +
-        Urls.GAMIFICATION +
+        Urls.GAMIFICATIONSIGNOFF +
         filter; //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
