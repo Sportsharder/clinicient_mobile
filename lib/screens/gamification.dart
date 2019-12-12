@@ -86,40 +86,5 @@ class _GamificationState extends State<Gamification> {
         (Route<dynamic> route) => false);
   }
 
-  String _getPatientImage(String firstName) {
-    String retValue;
 
-    switch (firstName) {
-      case 'Stevie':
-        {
-          retValue = 'assets/stevie.png';
-          break;
-        }
-      case 'Roland':
-        {
-          retValue = 'assets/roland.png';
-          break;
-        }
-      case 'Mutt':
-        {
-          retValue = 'assets/mutt.png';
-          break;
-        }
-      case 'Ted':
-        {
-          retValue = 'assets/ted.png';
-          break;
-        }
-      case 'Twila':
-        {
-          retValue = 'assets/twila.png';
-          break;
-        }
-      default:
-        {
-          retValue = 'assets/spongesil.png';
-          break;
-        }
-    }
-  }
 }
