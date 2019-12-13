@@ -50,7 +50,7 @@ class _SlackerboardState extends State<Slackerboard> {
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ],
               ),
-              title: Text('Slackerboard (Unsigned)'),
+              title: Text('Slackerboard'),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.home),

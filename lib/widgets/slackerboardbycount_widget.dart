@@ -48,7 +48,7 @@ class SlackerBoardByCountWidget extends StatelessWidget {
               Expanded(
                 child: Text(
                   currentRow.staffFirstName,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
               Padding(
@@ -57,7 +57,7 @@ class SlackerBoardByCountWidget extends StatelessWidget {
               Expanded(
                 child: Text(
                   currentRow.staffLastName,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
               Padding(

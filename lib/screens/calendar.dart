@@ -150,8 +150,18 @@ class CalendarState extends State<Calendar> {
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-              _filteredAppointments == null
-                  ? Container()
+              _filteredAppointments.length == 0
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                          Padding(
+                              padding: EdgeInsets.only(top: 10, bottom: 10),
+                              child: Text(
+                                "You're free!",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.normal),
+                              ))
+                        ])
                   : Expanded(
                       //height: 100,
                       //width: 200,

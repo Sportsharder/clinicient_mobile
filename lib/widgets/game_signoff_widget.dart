@@ -8,7 +8,6 @@ class GamificationSignoffWidget extends StatelessWidget {
   GamificationSignoffWidget(this.currentRow, this.index);
 
   Widget build(BuildContext context) {
-
     Color color;
 
     if (index.isEven) {
@@ -19,57 +18,57 @@ class GamificationSignoffWidget extends StatelessWidget {
 
     return Card(
         color: color,
-        child:Padding(
-        padding: EdgeInsets.only(top: 10, bottom: 10),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Expanded(
-                child: CircleAvatar(
-                  child: Text(
-                    (index + 1).toString(),
-                    style: TextStyle(color: Colors.white),
+        child: Padding(
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: CircleAvatar(
+                      child: Text(
+                        (index + 1).toString(),
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      backgroundColor: Color(0xffEF8D69F),
+                    ),
                   ),
-                  backgroundColor: Color(0xffEF8D69F),
-                ),
-              ),
-              Expanded(
-                child:
-                    Image.asset(_getTherapistImage(currentRow.staffFirstName),
+                  Expanded(
+                    child: Image.asset(
+                        _getTherapistImage(currentRow.staffFirstName),
                         //fit: BoxFit.fill,
                         //height: 40,
                         width: 65,
                         height: 50,
                         fit: BoxFit.fitWidth),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 4),
-              ),
-              Expanded(
-                child: Text(
-                  currentRow.staffFirstName,
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 4),
-              ),
-              Expanded(
-                child: Text(
-                  currentRow.staffLastName,
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 4),
-              ),
-              Expanded(
-                child: Text(
-                  currentRow.signedVisits.toString(),
-                  style: TextStyle(fontSize: 16),
-                ),
-              ),
-            ])));
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4),
+                  ),
+                  Expanded(
+                    child: Text(
+                      currentRow.staffFirstName,
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4),
+                  ),
+                  Expanded(
+                    child: Text(
+                      currentRow.staffLastName,
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 4),
+                  ),
+                  Expanded(
+                    child: Text(
+                      currentRow.signedVisits.toString(),
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                ])));
   }
 
   String _getTherapistImage(String firstName) {
