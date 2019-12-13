@@ -35,14 +35,9 @@ class NavigationDrawer extends StatelessWidget {
                                         height: 40,
                                         width: 40,
                                         fit: BoxFit.cover)),
-                                //backgroundColor: ThemeColors.primaryColor,
 
                                 onTap: () {
-                                  Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Calendar()),
-                                      (Route<dynamic> route) => false);
+
                                 })),
                         SizedBox(
                           width: 115.0,
