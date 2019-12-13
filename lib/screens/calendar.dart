@@ -90,34 +90,32 @@ class CalendarState extends State<Calendar> {
                 child: CalendarCarousel<Event>(
                   headerMargin: EdgeInsets.only(),
                   weekDayMargin: EdgeInsets.only(top: 0, bottom: 0),
-
                   //viewportFraction: .1,
-
                   onDayPressed: (DateTime date, List<Event> events) {
                     _dateChange(date, events);
                     //this.setState(() => {_currentDate = date});
                   },
                   weekendTextStyle: TextStyle(
-                    color: Colors.blueAccent,
+                      color: Color(0xffE202E4A)
                   ),
-                  thisMonthDayBorderColor: Colors.grey,
-                  selectedDayButtonColor: Colors.blueAccent,
-                  todayButtonColor: Colors.deepOrangeAccent,
+                  thisMonthDayBorderColor: Color(0xffE202E4A),
+                  selectedDayButtonColor: Color(0xffE202E4A),
+                  todayButtonColor: Colors.grey,
                   headerTextStyle: TextStyle(
                       color: Colors.deepOrangeAccent,
                       fontWeight: FontWeight.normal,
                       fontSize: 16),
                   weekdayTextStyle: TextStyle(
-                      color: Colors.blueGrey,
+                      color: Color(0xffE202E4A),
                       fontWeight: FontWeight.normal,
                       fontSize: 12),
-                  iconColor: Colors.orangeAccent,
+                  iconColor: Color(0xffE202E4A),
                   dayPadding: 1,
                   customDayBuilder: (
-                    /// you can provide your own build function to make custom day containers
-                    bool isSelectable,
-                    int index,
-                    bool isSelectedDay,
+                      /// you can provide your own build function to make custom day containers
+                      bool isSelectable,
+                      int index,
+                      bool isSelectedDay,
                     bool isToday,
                     bool isPrevMonthDay,
                     TextStyle textStyle,
