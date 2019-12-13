@@ -84,11 +84,11 @@ class Appointment {
         startDate: json["ApptStartTime"] == null
             ? null
             : DateFormat.yMMMd()
-                .format(DateTime.parse(json["ApptStartTime"]).toLocal()),
+                .format(DateTime.parse(json["ApptStartTime"])),
         startTime: json["ApptStartTime"] == null
             ? null
             : DateFormat.jm()
-                .format(DateTime.parse(json["ApptStartTime"]).toLocal()),
+                .format(DateTime.parse(json["ApptStartTime"])),
         endTime: json["EndTime"],
         therapist: json["Therapist"],
         additionalStaff: json["AdditionalStaff"],
@@ -115,7 +115,7 @@ class Appointment {
         "AppointmentType": appointmentType,
         "CaseName": caseName,
         "ApptStartTime":
-            apptStartTime == null ? null : apptStartTime.toUtc().toString(),
+            apptStartTime == null ? null : apptStartTime.toString(),
         "StartDate": startDate,
         "StartTime": startTime,
         "EndTime": endTime,
