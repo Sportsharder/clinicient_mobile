@@ -100,7 +100,7 @@ class CalendarState extends State<Calendar> {
                     color: Colors.blueAccent,
                   ),
                   thisMonthDayBorderColor: Colors.grey,
-                  selectedDayButtonColor: Colors.deepOrangeAccent,
+                  selectedDayButtonColor: Colors.blueAccent,
                   todayButtonColor: Colors.deepOrangeAccent,
                   headerTextStyle: TextStyle(
                       color: Colors.deepOrangeAccent,
