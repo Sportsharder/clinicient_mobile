@@ -147,7 +147,7 @@ class _PatientDetailsState extends State<PatientDetail> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),*/
                 ])),
-        Padding(
+        /*  Padding(
             padding: EdgeInsets.only(top: 10, left: 45),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -164,7 +164,7 @@ class _PatientDetailsState extends State<PatientDetail> {
                         widget.appointment.patient.dateOfBirth,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),*/
-                ])),
+                ])),*/
       ],
     );
 

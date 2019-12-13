@@ -43,30 +43,30 @@ class SlackerBoardByCountWidget extends StatelessWidget {
                         fit: BoxFit.fitWidth),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(
                   currentRow.staffFirstName,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(
                   currentRow.staffLastName,
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(
                   currentRow.totalUnsignedVisits.toString(),
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
             ])));

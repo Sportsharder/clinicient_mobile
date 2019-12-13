@@ -80,7 +80,7 @@ class Appointment {
         caseName: json["CaseName"],
         apptStartTime: json["ApptStartTime"] == null
             ? null
-            : DateTime.parse(json["ApptStartTime"]).toLocal(),
+            : DateTime.parse(json["ApptStartTime"]),
         startDate: json["ApptStartTime"] == null
             ? null
             : DateFormat.yMMMd()
@@ -127,7 +127,7 @@ class Appointment {
         "StaffLastName": staffLastName,
 
         "ClientFirstName": patientFirstName,
-        "ClietLastName": patientLastName,
+        "ClientLastName": patientLastName,
         "DateOfBirth": dateOfBirth,
         "Age": age,
         "Gender": gender,

@@ -43,7 +43,7 @@ class SlackerBoardByTimeWidget extends StatelessWidget {
                         fit: BoxFit.fitWidth),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(
@@ -52,7 +52,7 @@ class SlackerBoardByTimeWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(
@@ -61,7 +61,7 @@ class SlackerBoardByTimeWidget extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: EdgeInsets.only(left: 4),
               ),
               Expanded(
                 child: Text(

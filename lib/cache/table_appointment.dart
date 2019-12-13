@@ -24,7 +24,7 @@ class TableAppointmentCache {
   static final String staffFirstName = "StaffFirstName";
   static final String staffLastName = "StaffLastName";
   static final String patientFirstName = "ClientFirstName";
-  static final String patientLastName = "ClietLastName";
+  static final String patientLastName = "ClientLastName";
   static final String dateOfBirth = "DateOfBirth";
   static final String age = "Age";
   static final String gender = "Gender";
