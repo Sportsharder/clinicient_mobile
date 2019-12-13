@@ -44,13 +44,13 @@ class _SlackerboardState extends State<Slackerboard> {
               bottom: TabBar(
                 indicatorColor: Colors.white,
                 tabs: [
-                  Text('By Time',
+                  Text('By Hours',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                   Text('By Count',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ],
               ),
-              title: Text('Slackerboard'),
+              title: Text('Unsigned Visit Slackerboard'),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.home),

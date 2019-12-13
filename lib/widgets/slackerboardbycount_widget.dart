@@ -31,7 +31,7 @@ class SlackerBoardByCountWidget extends StatelessWidget {
                         (index + 1).toString(),
                         style: TextStyle(color: Colors.white),
                       ),
-                      backgroundColor: Color(0xffEF8D69F),
+                      backgroundColor:Color(0xffE202E4A),
                     ),
                   ),
                   Expanded(
@@ -44,20 +44,13 @@ class SlackerBoardByCountWidget extends StatelessWidget {
                         fit: BoxFit.fitWidth),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 4),
+                    padding: EdgeInsets.only(left: 25),
                   ),
                   Expanded(
                     child: Text(
-                      currentRow.staffFirstName,
-                      style: TextStyle(fontSize: 14),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 4),
-                  ),
-                  Expanded(
-                    child: Text(
-                      currentRow.staffLastName,
+                      currentRow.staffFirstName +
+                          ' ' +
+                          currentRow.staffLastName,
                       style: TextStyle(fontSize: 14),
                     ),
                   ),
