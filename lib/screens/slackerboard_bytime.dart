@@ -37,34 +37,24 @@ class _SlackerBoardByTimeState extends State<SlackerBoardByTime> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-          Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            _scores == null
-                ? Container()
-                : Expanded(
-                    //height: 100,
-                    //width: 200,
-                    child: SingleChildScrollView(
-                        child: Container(
-                            // color: Colors.black,
-                            // padding: const EdgeInsets.only(
-                            //     left: 0, right: 0),
-                            child: ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                controller: _scrollController,
-                                shrinkWrap: true,
-                                itemCount: _scores.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  SlackingByTime currentRow = _scores[index];
+        body: _scores == null
+            ? Container()
+            : SingleChildScrollView(
+                child: Column(children: <Widget>[
+                // color: Colors.black,
+                // padding: const EdgeInsets.only(
+                //     left: 0, right: 0),
+                ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    controller: _scrollController,
+                    shrinkWrap: true,
+                    itemCount: _scores.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      SlackingByTime currentRow = _scores[index];
 
-                                  return SlackerBoardByTimeWidget(
-                                      currentRow, index);
-                                }))))
-          ])
-        ])));
+                      return SlackerBoardByTimeWidget(currentRow, index);
+                    })
+              ])));
   }
 }
 
