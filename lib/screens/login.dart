@@ -232,6 +232,7 @@ class LoginState extends State<Login> {
           return;
         }
         globalState.therapist = test;
+        globalState.lastSelectedDate = null;
       }
 
 

@@ -33,8 +33,8 @@ class CalendarState extends State<Calendar> {
 
   ScrollController _scrollController = new ScrollController();
   AppointmentBloc _appointmentBloc = AppointmentBloc();
-  List<Appointment> _appointments = List();
-  List<Appointment> _filteredAppointments = List();
+  List<Appointment> _appointments;
+  List<Appointment> _filteredAppointments;
 
   @override
   void initState() {
@@ -95,9 +95,7 @@ class CalendarState extends State<Calendar> {
                     _dateChange(date, events);
                     //this.setState(() => {_currentDate = date});
                   },
-                  weekendTextStyle: TextStyle(
-                      color: Color(0xffE202E4A)
-                  ),
+                  weekendTextStyle: TextStyle(color: Color(0xffE202E4A)),
                   thisMonthDayBorderColor: Color(0xffE202E4A),
                   selectedDayButtonColor: Color(0xffE202E4A),
                   todayButtonColor: Colors.grey,
@@ -112,10 +110,10 @@ class CalendarState extends State<Calendar> {
                   iconColor: Color(0xffE202E4A),
                   dayPadding: 1,
                   customDayBuilder: (
-                      /// you can provide your own build function to make custom day containers
-                      bool isSelectable,
-                      int index,
-                      bool isSelectedDay,
+                    /// you can provide your own build function to make custom day containers
+                    bool isSelectable,
+                    int index,
+                    bool isSelectedDay,
                     bool isToday,
                     bool isPrevMonthDay,
                     TextStyle textStyle,
@@ -149,169 +147,149 @@ class CalendarState extends State<Calendar> {
                   /// null for not rendering any border, true for circular border, false for rectangular border
                 ),
               ),
-              _filteredAppointments.length == 0
-                  ? Container(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                          Padding(
-                              padding: EdgeInsets.only(top: 10, bottom: 10),
-                              child: Text(
-                                "You're free!",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal),
-                              ))
-                        ]))
-                  : Expanded(
-                      //height: 100,
-                      //width: 200,
-                      child: SingleChildScrollView(
-                        child: Container(
-                            // color: Colors.black,
-                            // padding: const EdgeInsets.only(
-                            //     left: 0, right: 0),
-                            child: ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                controller: _scrollController,
-                                shrinkWrap: true,
-                                itemCount: _filteredAppointments.length,
-                                itemBuilder: (BuildContext context, int index) {
+              _filteredAppointments == null
+                  ? Container()
+                  : (_filteredAppointments.length == 0
+                      ? Container(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                                  child: Text(
+                                    "You're free!",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.normal),
+                                  ))
+                            ]))
+                      : Expanded(
+                          //height: 100,
+                          //width: 200,
+                          child: SingleChildScrollView(
+                              child: Container(
+                                  // color: Colors.black,
+                                  // padding: const EdgeInsets.only(
+                                  //     left: 0, right: 0),
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.vertical,
+                                      controller: _scrollController,
+                                      shrinkWrap: true,
+                                      itemCount: _filteredAppointments.length,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        if (index < 1) return Container();
 
-                                  if (index < 1) return Container();
+                                        Color color;
 
-                                  Color color;
+                                        if (index.isEven) {
+                                          color = Colors.white30;
+                                        } else {
+                                          color = Colors.white70;
+                                        }
 
-                                  if (index.isEven) {
-                                    color = Colors.white30;
-                                  } else {
-                                    color = Colors.white70;
-                                  }
+                                        Appointment currentRow =
+                                            _filteredAppointments[index];
 
-                                  Appointment currentRow =
-                                      _filteredAppointments[index];
-
-                                  return Center(
-                                      child: Card(
-                                          color: color,
-                                          child: Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 20,
-                                                  right: 20,
-                                                  top: 10,
-                                                  bottom: 10),
-                                              child: InkWell(
-                                                  onTap: () =>
-                                                      _openPatientDetail(
-                                                          currentRow),
-                                                  child:
-                                                      Column(children: <Widget>[
-                                                    Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceAround,
-                                                        children: <Widget>[
-                                                          Text(
-                                                              currentRow
-                                                                  .startTime,
-                                                              style: TextStyle(
-                                                                  fontSize:
-                                                                      18)),
-                                                          Spacer(flex: 1),
-                                                          Expanded(
-                                                              flex: 2,
-                                                              child: Container(
-                                                                  child: Row(
-                                                                      children: <
-                                                                          Widget>[
+                                        return Center(
+                                            child: Card(
+                                                color: color,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 20,
+                                                        right: 20,
+                                                        top: 10,
+                                                        bottom: 10),
+                                                    child: InkWell(
+                                                        onTap: () =>
+                                                            _openPatientDetail(
+                                                                currentRow),
+                                                        child: Column(
+                                                            children: <Widget>[
+                                                              Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceAround,
+                                                                  children: <
+                                                                      Widget>[
                                                                     Text(
-                                                                        currentRow.patientFirstName !=
-                                                                                null
-                                                                            ? currentRow
-                                                                                .patientFirstName
-                                                                            : '',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              18,
-                                                                        )),
-                                                                    Text(' ',
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              16,
-                                                                        )),
-                                                                    Text(
-                                                                        currentRow.patientLastName !=
-                                                                                null
-                                                                            ? currentRow
-                                                                                .patientLastName
-                                                                            : '',
+                                                                        currentRow
+                                                                            .startTime,
                                                                         style: TextStyle(
                                                                             fontSize:
-                                                                                16)),
-                                                                  ]))),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    bottom: 15,
-                                                                    top: 15),
-                                                          )
-                                                        ]),
-                                                    Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceAround,
-                                                        children: <Widget>[
-                                                          Padding(
-                                                              padding: EdgeInsets
-                                                                  .only(
-                                                                      left: 20),
-                                                              child: Text(
-                                                                  currentRow.duration !=
-                                                                          null
-                                                                      ? currentRow
-                                                                              .duration
-                                                                              .toString() +
-                                                                          ' minutes'
-                                                                      : '',
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          18))),
-                                                          Spacer(flex: 1),
-                                                          Expanded(
-                                                            flex: 2,
-                                                            child: Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        left:
-                                                                            15),
-                                                                child: Text(
-                                                                    currentRow.appointmentType !=
-                                                                            null
-                                                                        ? currentRow
-                                                                            .appointmentType
-                                                                        : '',
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            16))),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    bottom: 15,
-                                                                    top: 15),
-                                                          )
-                                                        ])
-                                                  ])))));
-                                })),
-                      ),
-                    ),
+                                                                                18)),
+                                                                    Spacer(
+                                                                        flex:
+                                                                            1),
+                                                                    Expanded(
+                                                                        flex: 2,
+                                                                        child: Container(
+                                                                            child: Row(children: <Widget>[
+                                                                          Text(
+                                                                              currentRow.patientFirstName != null ? currentRow.patientFirstName : '',
+                                                                              style: TextStyle(
+                                                                                fontSize: 18,
+                                                                              )),
+                                                                          Text(
+                                                                              ' ',
+                                                                              style: TextStyle(
+                                                                                fontSize: 16,
+                                                                              )),
+                                                                          Text(
+                                                                              currentRow.patientLastName != null ? currentRow.patientLastName : '',
+                                                                              style: TextStyle(fontSize: 16)),
+                                                                        ]))),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          bottom:
+                                                                              15,
+                                                                          top:
+                                                                              15),
+                                                                    )
+                                                                  ]),
+                                                              Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceAround,
+                                                                  children: <
+                                                                      Widget>[
+                                                                    Padding(
+                                                                        padding: EdgeInsets.only(
+                                                                            left:
+                                                                                20),
+                                                                        child: Text(
+                                                                            currentRow.duration != null
+                                                                                ? currentRow.duration.toString() + ' minutes'
+                                                                                : '',
+                                                                            style: TextStyle(fontSize: 18))),
+                                                                    Spacer(
+                                                                        flex:
+                                                                            1),
+                                                                    Expanded(
+                                                                      flex: 2,
+                                                                      child: Padding(
+                                                                          padding: EdgeInsets.only(
+                                                                              left:
+                                                                                  15),
+                                                                          child: Text(
+                                                                              currentRow.appointmentType != null ? currentRow.appointmentType : '',
+                                                                              style: TextStyle(fontSize: 16))),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          bottom:
+                                                                              15,
+                                                                          top:
+                                                                              15),
+                                                                    )
+                                                                  ])
+                                                            ])))));
+                                      }))),
+                        )),
             ]));
   }
 
   _dateChange(DateTime date, List<Event> events) {
-
     try {
       _filteredAppointments = List();
 
@@ -322,17 +300,19 @@ class CalendarState extends State<Calendar> {
         _currentDate = date;
 
         _filteredAppointments.retainWhere((appointment) =>
-        appointment.startDate
-            .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
+            appointment.startDate
+                .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
             0);
 
-        print(_filteredAppointments.length);
-        print(_filteredAppointments.length);
+
       });
-    } catch(err){
 
+      print(_filteredAppointments.length);
+      print(_filteredAppointments.length);
+
+
+    } catch (err) {
       print(err.toString());
-
     }
   }
 
