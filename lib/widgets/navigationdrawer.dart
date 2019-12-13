@@ -128,15 +128,15 @@ class NavigationDrawer extends StatelessWidget {
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 180),
+                padding: EdgeInsets.only(bottom: 140),
               ),
               Padding(
-                  padding: EdgeInsets.only(left: 25),
+                  padding: EdgeInsets.only(left: 0),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Image.asset('assets/grayheads.png',
-                            width: 100, fit: BoxFit.fitWidth),
+                        Image.asset('assets/navylogo.png',
+                            width: 110, fit: BoxFit.fitWidth),
                       ])),
             ],
           ),

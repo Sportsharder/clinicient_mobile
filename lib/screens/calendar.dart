@@ -20,7 +20,7 @@ class Appointment {
 class Calendar extends StatefulWidget {
   Calendar({Key key}) : super(key: key);
 
-  String title = "Insight Mobile Calendar";
+  String title = "timelyPT";
 
   @override
   CalendarState createState() => CalendarState();
@@ -152,9 +152,10 @@ class CalendarState extends State<Calendar> {
                 ),
               ),
               _filteredAppointments.length == 0
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                  ? Container(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
                           Padding(
                               padding: EdgeInsets.only(top: 10, bottom: 10),
                               child: Text(
@@ -163,7 +164,7 @@ class CalendarState extends State<Calendar> {
                                     fontSize: 18,
                                     fontWeight: FontWeight.normal),
                               ))
-                        ])
+                        ]))
                   : Expanded(
                       //height: 100,
                       //width: 200,
@@ -178,6 +179,9 @@ class CalendarState extends State<Calendar> {
                                 shrinkWrap: true,
                                 itemCount: _filteredAppointments.length,
                                 itemBuilder: (BuildContext context, int index) {
+
+                                  if (index < 1) return Container();
+
                                   Color color;
 
                                   if (index.isEven) {
