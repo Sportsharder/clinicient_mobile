@@ -79,7 +79,7 @@ class NavigationDrawer extends StatelessWidget {
                 contentPadding: EdgeInsets.only(left: 25),
                 leading: Icon(Icons.videogame_asset, color: _menuItems),
                 title: Text(
-                  'Sign Off Leaderboard',
+                  'Leaderboard',
                   style: TextStyle(
                     color: _menuItems, /*fontWeight: FontWeight.bold*/
                   ),
@@ -97,7 +97,7 @@ class NavigationDrawer extends StatelessWidget {
                 contentPadding: EdgeInsets.only(left: 25),
                 leading: Icon(Icons.mood_bad, color: _menuItems),
                 title: Text(
-                  'Unsigned Visit Slackerboard',
+                  'Slackerboard',
                   style: TextStyle(
                     color: _menuItems, /*fontWeight: FontWeight.bold*/
                   ),
