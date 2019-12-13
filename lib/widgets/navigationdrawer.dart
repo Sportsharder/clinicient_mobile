@@ -128,7 +128,7 @@ class NavigationDrawer extends StatelessWidget {
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: 220),
+                padding: EdgeInsets.only(bottom: 180),
               ),
               Padding(
                   padding: EdgeInsets.only(left: 25),
