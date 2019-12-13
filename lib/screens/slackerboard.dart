@@ -40,7 +40,7 @@ class _SlackerboardState extends State<Slackerboard> {
           child: Scaffold(
             drawer: NavigationDrawer(),
             appBar: AppBar(
-              backgroundColor: Color(0xffEF8D69F),
+              backgroundColor: Color(0xffE202E4A),
               bottom: TabBar(
                 indicatorColor: Colors.white,
                 tabs: [

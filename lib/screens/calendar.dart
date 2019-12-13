@@ -311,22 +311,29 @@ class CalendarState extends State<Calendar> {
   }
 
   _dateChange(DateTime date, List<Event> events) {
-    _filteredAppointments = List();
 
-    _filteredAppointments.addAll(_appointments);
+    try {
+      _filteredAppointments = List();
 
-    setState(() {
-      _currentDate = date;
+      _filteredAppointments.addAll(_appointments);
       globalState.lastSelectedDate = date;
-      _filteredAppointments.retainWhere((appointment) =>
-          appointment.startDate
-              .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
-          0);
 
-      print(_filteredAppointments.length);
-      print(_filteredAppointments.length);
+      setState(() {
+        _currentDate = date;
 
-    });
+        _filteredAppointments.retainWhere((appointment) =>
+        appointment.startDate
+            .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
+            0);
+
+        print(_filteredAppointments.length);
+        print(_filteredAppointments.length);
+      });
+    } catch(err){
+
+      print(err.toString());
+
+    }
   }
 
   _openPatientDetail(Appointment appointment) {

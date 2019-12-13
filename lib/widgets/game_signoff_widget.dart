@@ -30,7 +30,7 @@ class GamificationSignoffWidget extends StatelessWidget {
                         (index + 1).toString(),
                         style: TextStyle(color: Colors.white),
                       ),
-                      backgroundColor: Color(0xffE202E4A),
+                      backgroundColor:Color(0xffEF8D69F),
                     ),
                   ),
                   Expanded(
