@@ -17,6 +17,8 @@ class PatientDetail extends StatefulWidget {
 class _PatientDetailsState extends State<PatientDetail> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  Color fontColor = Color(0xffE202E4A);
+
   @override
   Widget build(BuildContext context) {
     Column makeBody = Column(
@@ -43,7 +45,10 @@ class _PatientDetailsState extends State<PatientDetail> {
                         (widget.appointment.patientLastName == null
                             ? ''
                             : widget.appointment.patientLastName),
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: fontColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
                 ])),
         Padding(
@@ -54,21 +59,27 @@ class _PatientDetailsState extends State<PatientDetail> {
                   Text(
                     widget.appointment.dateOfBirth == null
                         ? ''
-                        : widget.appointment.dateOfBirth +
-                            '      ' +
-                            (widget.appointment.age == null
-                                ? ''
-                                : widget.appointment.age.toString()),
+                        : widget.appointment.dateOfBirth,
                     style: TextStyle(
+                      color: fontColor,
                       fontSize: 18,
                     ),
                   ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
+                ])),
+        Padding(
+            padding: EdgeInsets.only(top: 10, left: 45),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    widget.appointment.age == null
+                        ? ''
+                        : widget.appointment.age.toString(),
+                    style: TextStyle(
+                      color: fontColor,
+                      fontSize: 18,
+                    ),
+                  ),
                 ])),
         Padding(
             padding: EdgeInsets.only(top: 10, left: 45),
@@ -81,15 +92,10 @@ class _PatientDetailsState extends State<PatientDetail> {
                         ? ''
                         : widget.appointment.gender,
                     style: TextStyle(
+                      color: fontColor,
                       fontSize: 18,
                     ),
                   ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
                 ])),
         Padding(
             padding: EdgeInsets.only(top: 10, left: 45),
@@ -99,15 +105,10 @@ class _PatientDetailsState extends State<PatientDetail> {
                   Text(
                     '503-786-3645',
                     style: TextStyle(
+                      color: fontColor,
                       fontSize: 18,
                     ),
                   ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
                 ])),
         Padding(
             padding: EdgeInsets.only(top: 10, left: 45),
@@ -119,15 +120,10 @@ class _PatientDetailsState extends State<PatientDetail> {
                         ? ''
                         : widget.appointment.email,
                     style: TextStyle(
+                      color: fontColor,
                       fontSize: 18,
                     ),
                   ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
                 ])),
         Padding(
             padding: EdgeInsets.only(top: 10, left: 30),
@@ -138,33 +134,12 @@ class _PatientDetailsState extends State<PatientDetail> {
                     widget.appointment.caseName == null
                         ? ''
                         : widget.appointment.caseName,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
-                ])),
-        /*  Padding(
-            padding: EdgeInsets.only(top: 10, left: 45),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'I need notes, Serhat',
                     style: TextStyle(
-                      fontSize: 18,
-                    ),
+                        color: fontColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
-                  /*Text(
-                    widget.appointment.patient.dateOfBirth +
-                        ' ' +
-                        widget.appointment.patient.dateOfBirth,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),*/
-                ])),*/
+                ])),
       ],
     );
 
