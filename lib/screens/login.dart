@@ -201,7 +201,7 @@ class LoginState extends State<Login> {
         key: _scaffoldKey,
         // backgroundColor: Color(0xffEF8D69F),
         appBar: AppBar(
-          title: Text('TimelyPT'),
+          title: Text('timelyPT'),
           backgroundColor: Color(0xffEF8D69F),
         ),
         body: new Column(

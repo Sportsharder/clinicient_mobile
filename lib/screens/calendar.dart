@@ -319,10 +319,15 @@ class CalendarState extends State<Calendar> {
 
     setState(() {
       _currentDate = date;
+      globalState.lastSelectedDate = date;
       _filteredAppointments.retainWhere((appointment) =>
           appointment.startDate
               .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
           0);
+
+      print(_filteredAppointments.length);
+      print(_filteredAppointments.length);
+
     });
   }
 
