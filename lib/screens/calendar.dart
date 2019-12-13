@@ -199,7 +199,7 @@ class CalendarState extends State<Calendar> {
                                                         children: <Widget>[
                                                           Text(
                                                               currentRow
-                                                                  .startDate,
+                                                                  .startTime,
                                                               style: TextStyle(
                                                                   fontSize:
                                                                       18)),
@@ -211,10 +211,10 @@ class CalendarState extends State<Calendar> {
                                                                       children: <
                                                                           Widget>[
                                                                     Text(
-                                                                        currentRow.patient.firstName !=
+                                                                        currentRow.patientFirstName !=
                                                                                 null
                                                                             ? currentRow
-                                                                                .patient.firstName
+                                                                                .patientFirstName
                                                                             : '',
                                                                         style:
                                                                             TextStyle(
@@ -228,10 +228,10 @@ class CalendarState extends State<Calendar> {
                                                                               16,
                                                                         )),
                                                                     Text(
-                                                                        currentRow.patient.lastName !=
+                                                                        currentRow.patientLastName !=
                                                                                 null
                                                                             ? currentRow
-                                                                                .patient.lastName
+                                                                                .patientLastName
                                                                             : '',
                                                                         style: TextStyle(
                                                                             fontSize:

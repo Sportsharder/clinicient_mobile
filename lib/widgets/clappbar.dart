@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/calendar.dart';
 import 'dart:io';
+import '../models/globalstate.dart';
 
 class ClappBarr extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -29,6 +30,8 @@ class _ClappBarrState extends State<ClappBarr> {
             child: IconButton(
                 icon: Icon(Icons.home, color: Colors.white),
                 onPressed: () {
+                  globalState.lastSelectedDate = null;
+
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) => Calendar()),
