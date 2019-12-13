@@ -37,6 +37,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.account_circle, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     (widget.appointment.patientFirstName == null
                             ? ''
@@ -56,6 +60,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.card_giftcard, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     widget.appointment.dateOfBirth == null
                         ? ''
@@ -71,6 +79,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.hourglass_empty, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     widget.appointment.age == null
                         ? ''
@@ -86,7 +98,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  // Icon(Icons. ),
+                  Icon(Icons.local_pizza, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     widget.appointment.gender == null
                         ? ''
@@ -102,6 +117,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.call, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     '503-786-3645',
                     style: TextStyle(
@@ -115,6 +134,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.mail_outline, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     widget.appointment.email == null
                         ? ''
@@ -130,6 +153,10 @@ class _PatientDetailsState extends State<PatientDetail> {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
+                  Icon(Icons.folder_open, color: fontColor),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                  ),
                   Text(
                     widget.appointment.caseName == null
                         ? ''
