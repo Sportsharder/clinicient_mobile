@@ -5,7 +5,9 @@ import '../models/globalstate.dart';
 
 class ClappBarr extends StatefulWidget implements PreferredSizeWidget {
   final String title;
-  ClappBarr({Key key, this.title})
+  final bool showHome;
+
+  ClappBarr({Key key, this.title, @required this.showHome})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -25,18 +27,20 @@ class _ClappBarrState extends State<ClappBarr> {
       title: Text(widget.title),
       backgroundColor: Color(0xffEF8D69F),
       actions: <Widget>[
-        Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: IconButton(
-                icon: Icon(Icons.home, color: Colors.white),
-                onPressed: () {
-                  globalState.lastSelectedDate = null;
+        widget.showHome == false
+            ? Container()
+            : Padding(
+                padding: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                    icon: Icon(Icons.home, color: Colors.white),
+                    onPressed: () {
+                      globalState.lastSelectedDate = null;
 
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => Calendar()),
-                      (Route<dynamic> route) => false);
-                }))
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Calendar()),
+                          (Route<dynamic> route) => false);
+                    }))
       ],
     );
   }

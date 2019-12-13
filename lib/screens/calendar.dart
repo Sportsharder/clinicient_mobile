@@ -75,6 +75,7 @@ class CalendarState extends State<Calendar> {
         // drawer: CustomDrawer(),
         appBar: ClappBarr(
           title: widget.title,
+          showHome: false,
         ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -159,7 +160,8 @@ class CalendarState extends State<Calendar> {
                               child: Text(
                                 "You're free!",
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.normal),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal),
                               ))
                         ])
                   : Expanded(
@@ -307,7 +309,6 @@ class CalendarState extends State<Calendar> {
   }
 
   _dateChange(DateTime date, List<Event> events) {
-
     _filteredAppointments = List();
 
     _filteredAppointments.addAll(_appointments);

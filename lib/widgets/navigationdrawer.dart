@@ -24,14 +24,15 @@ class NavigationDrawer extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(
-                            width: 200.0,
+                            width: 115.0,
                             height: 115.0,
                             child: InkWell(
-                                child: Image.asset('assets/logo_reversed.png',
-                                    //fit: BoxFit.fill,
-                                    height: 40,
-                                    width: 40,
-                                    fit: BoxFit.fitWidth),
+                                child: ClipOval(
+                                    child: Image.asset('assets/twila.png',
+                                        //fit: BoxFit.fill,
+                                        height: 40,
+                                        width: 40,
+                                        fit: BoxFit.cover)),
                                 //backgroundColor: ThemeColors.primaryColor,
 
                                 onTap: () {
@@ -41,13 +42,16 @@ class NavigationDrawer extends StatelessWidget {
                                           builder: (context) => Calendar()),
                                       (Route<dynamic> route) => false);
                                 })),
-                        /* SizedBox(
-                        width: 28.0,
-                        height: 50.0,
-                        child: Text("Iron /n Circles",
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      CircleAvatar(child: Image.asset('assets/icon.png')),*/
+
+                              SizedBox(
+                                width: 115.0,
+                                height: 16.0,
+                                child: Center(
+                                  child: Text("Twyla Sands",
+                                      style: TextStyle(fontSize: 16, color: Colors.white)),
+                                ),
+                              )
+
                       ], // alignment: FractionalOffset.topLeft,
                     ),
                   ],
@@ -85,7 +89,7 @@ class NavigationDrawer extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) => Gamification()),
-                          (Route<dynamic> route) => false);
+                      (Route<dynamic> route) => false);
                 },
               ),
               ListTile(
@@ -103,10 +107,10 @@ class NavigationDrawer extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) => Slackerboard()),
-                          (Route<dynamic> route) => false);
+                      (Route<dynamic> route) => false);
                 },
               ),
-              ListTile(
+              /* ListTile(
                 contentPadding: EdgeInsets.only(left: 25),
                 leading: Icon(Icons.lock, color: _menuItems),
                 title: Text(
@@ -121,9 +125,9 @@ class NavigationDrawer extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Gamification()),
                       (Route<dynamic> route) => false);
                 },
-              ),
+              ),*/
               Padding(
-                padding: EdgeInsets.only(bottom: 180),
+                padding: EdgeInsets.only(bottom: 220),
               ),
               Padding(
                   padding: EdgeInsets.only(left: 25),
