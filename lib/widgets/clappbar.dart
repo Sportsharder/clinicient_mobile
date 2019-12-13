@@ -24,7 +24,8 @@ class _ClappBarrState extends State<ClappBarr> {
 
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(widget.title),
+      iconTheme: new IconThemeData(color:Color(0xffE202E4A)),
+      title: Text(widget.title, style: TextStyle(color: Color(0xffE202E4A)),),
       backgroundColor: Color(0xffEF8D69F),
       actions: <Widget>[
         widget.showHome == false
@@ -32,7 +33,7 @@ class _ClappBarrState extends State<ClappBarr> {
             : Padding(
                 padding: const EdgeInsets.only(right: 10),
                 child: IconButton(
-                    icon: Icon(Icons.home, color: Colors.white),
+                    icon: Icon(Icons.home, color: Color(0xffE202E4A)),
                     onPressed: () {
                       globalState.lastSelectedDate = null;
 

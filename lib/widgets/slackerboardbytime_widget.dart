@@ -11,11 +11,9 @@ class SlackerBoardByTimeWidget extends StatelessWidget {
     Color color;
 
     if (index.isEven) {
-      color = Colors.white70;
-      //color = Colors.white30;
-    } else {
-      //color = Colors.white70;
       color = Colors.white30;
+    } else {
+      color = Color(0xffe2ecfa);
     }
 
     return Card(

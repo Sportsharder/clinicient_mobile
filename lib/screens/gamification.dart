@@ -38,6 +38,11 @@ class _GamificationState extends State<Gamification> {
           child: Scaffold(
             drawer: NavigationDrawer(),
             appBar: AppBar(
+
+              iconTheme: new IconThemeData(color:Color(0xffE202E4A)),
+              //title: Text('Patient Details', style: TextStyle(color: Color(0xffE202E4A)),),
+
+
               backgroundColor: Color(0xffEF8D69F),
               bottom: TabBar(
                 indicatorColor: Colors.white,
@@ -50,7 +55,7 @@ class _GamificationState extends State<Gamification> {
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ],
               ),
-              title: Text('Sign Off Leaderboard'),
+              title: Text('Sign Off Leaderboard', style: TextStyle(color: Color(0xffE202E4A))),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.home),

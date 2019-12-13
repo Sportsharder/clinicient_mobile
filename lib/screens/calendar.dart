@@ -182,10 +182,14 @@ class CalendarState extends State<Calendar> {
 
                                         Color color;
 
+                                        //e2ecfa
+
+                                        //Color(0xffe2ecfa)
+
                                         if (index.isEven) {
                                           color = Colors.white30;
                                         } else {
-                                          color = Colors.white70;
+                                          color = Color(0xffe2ecfa);
                                         }
 
                                         Appointment currentRow =
@@ -303,14 +307,10 @@ class CalendarState extends State<Calendar> {
             appointment.startDate
                 .compareTo(DateFormat.yMMMd().format(_currentDate)) ==
             0);
-
-
       });
 
       print(_filteredAppointments.length);
       print(_filteredAppointments.length);
-
-
     } catch (err) {
       print(err.toString());
     }

@@ -175,7 +175,8 @@ class _PatientDetailsState extends State<PatientDetail> {
         child: Scaffold(
           key: _scaffoldKey,
           appBar: AppBar(
-            title: Text('Patient Details'),
+            iconTheme: new IconThemeData(color:Color(0xffE202E4A)),
+            title: Text('Patient Details', style: TextStyle(color: Color(0xffE202E4A)),),
             backgroundColor: Color(0xffEF8D69F),
           ),
           body: makeBody,

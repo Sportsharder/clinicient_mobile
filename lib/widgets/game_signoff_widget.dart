@@ -10,13 +10,14 @@ class GamificationSignoffWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color;
 
+    Color fontColor = Color(0xffE202E4A);
+
     if (index.isEven) {
-      color = Colors.white70;
-      //color = Colors.white30;
-    } else {
-      //color = Colors.white70;
       color = Colors.white30;
+    } else {
+      color = Colors.white70;
     }
+
     return Card(
         color: color,
         child: Padding(
@@ -28,7 +29,7 @@ class GamificationSignoffWidget extends StatelessWidget {
                     child: CircleAvatar(
                       child: Text(
                         (index + 1).toString(),
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: fontColor),
                       ),
                       backgroundColor:Color(0xffEF8D69F),
                     ),
@@ -50,7 +51,7 @@ class GamificationSignoffWidget extends StatelessWidget {
                       currentRow.staffFirstName +
                           ' ' +
                           currentRow.staffLastName,
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(fontSize: 14, color:fontColor),
                     ),
                   ),
                   Padding(
@@ -59,7 +60,7 @@ class GamificationSignoffWidget extends StatelessWidget {
                   Expanded(
                     child: Text(
                       currentRow.signedVisits.toString(),
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(fontSize: 14, color:fontColor),
                     ),
                   ),
                 ])));
