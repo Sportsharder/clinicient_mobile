@@ -44,9 +44,9 @@ class _SlackerboardState extends State<Slackerboard> {
               bottom: TabBar(
                 indicatorColor: Colors.white,
                 tabs: [
-                  Text('Today',
+                  Text('By Time',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
-                  Text('Week',
+                  Text('By Count',
                       style: TextStyle(color: Colors.white, fontSize: 18.0)),
                 ],
               ),
