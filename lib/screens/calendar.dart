@@ -307,6 +307,9 @@ class CalendarState extends State<Calendar> {
   }
 
   _dateChange(DateTime date, List<Event> events) {
+
+    _filteredAppointments = List();
+
     _filteredAppointments.addAll(_appointments);
 
     setState(() {
