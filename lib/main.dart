@@ -6,6 +6,7 @@ import 'blocs/bloc_provider.dart';
 import 'models/export_models.dart';
 import 'services/securestorage_service.dart';
 import 'package:path_provider/path_provider.dart';
+import 'screens/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,8 +43,9 @@ class App extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         //'/': (context) => Calendar(),
         '/home': (context) => Calendar(),
+        '/login': (context) => Login(),
       },
-      home: Calendar(),
+      home: Login(),
     );
   }
 }

@@ -6,3 +6,4 @@ export 'case.dart';
 export 'signedvisit.dart';
 export 'slackingbytime.dart';
 export 'slackingbycount.dart';
+export 'therapist.dart';

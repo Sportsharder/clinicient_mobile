@@ -16,7 +16,7 @@ class AppointmentBloc implements BlocBase {
     try {
       List<Appointment> appointments;
 
-      _sinkCache();
+      _sinkCache(therapistID);
 
       appointments = await _appointmentService.refreshSchedule(therapistID);
 
@@ -31,12 +31,12 @@ class AppointmentBloc implements BlocBase {
     }
   }
 
-  Future<List<Appointment>> _sinkCache() async {
+  Future<List<Appointment>> _sinkCache(int therapistID) async {
     List<Appointment> appointments;
 
     try {
       List<Appointment> appointments =
-          await TableAppointmentCache.readByTherapist(5);
+          await TableAppointmentCache.readByTherapist(therapistID);
 
       if (appointments != null) {
         if (appointments.length != 0) {

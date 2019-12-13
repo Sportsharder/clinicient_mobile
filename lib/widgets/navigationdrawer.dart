@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../screens/calendar.dart';
 import '../screens/gamification.dart';
 import '../screens/slackerboard.dart';
+import '../screens/login.dart';
 import 'dart:io';
+import '../models/export_models.dart';
 
 class NavigationDrawer extends StatelessWidget {
   NavigationDrawer();
@@ -28,7 +30,7 @@ class NavigationDrawer extends StatelessWidget {
                             height: 115.0,
                             child: InkWell(
                                 child: ClipOval(
-                                    child: Image.asset('assets/twila.png',
+                                    child: Image.asset(globalState.therapist.image,
                                         //fit: BoxFit.fill,
                                         height: 40,
                                         width: 40,
@@ -42,16 +44,15 @@ class NavigationDrawer extends StatelessWidget {
                                           builder: (context) => Calendar()),
                                       (Route<dynamic> route) => false);
                                 })),
-
-                              SizedBox(
-                                width: 115.0,
-                                height: 16.0,
-                                child: Center(
-                                  child: Text("Twyla Sands",
-                                      style: TextStyle(fontSize: 16, color: Colors.white)),
-                                ),
-                              )
-
+                        SizedBox(
+                          width: 115.0,
+                          height: 16.0,
+                          child: Center(
+                            child: Text(globalState.therapist.name,
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white)),
+                          ),
+                        )
                       ], // alignment: FractionalOffset.topLeft,
                     ),
                   ],
@@ -110,7 +111,7 @@ class NavigationDrawer extends StatelessWidget {
                       (Route<dynamic> route) => false);
                 },
               ),
-              /* ListTile(
+              ListTile(
                 contentPadding: EdgeInsets.only(left: 25),
                 leading: Icon(Icons.lock, color: _menuItems),
                 title: Text(
@@ -122,10 +123,10 @@ class NavigationDrawer extends StatelessWidget {
 
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => Gamification()),
+                      MaterialPageRoute(builder: (context) => Login()),
                       (Route<dynamic> route) => false);
                 },
-              ),*/
+              ),
               Padding(
                 padding: EdgeInsets.only(bottom: 220),
               ),

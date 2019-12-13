@@ -8,7 +8,7 @@ class AppointmentService {
   Future<List<Appointment>> refreshSchedule(int therapistID) async {
     String url = Urls().SERVER +
         Urls.APPOINTMENT +
-        '5'; //+ therapistID.toString(); //+circleID + '?' + memberID;
+        therapistID.toString(); //+ therapistID.toString(); //+circleID + '?' + memberID;
 
     print(url);
 

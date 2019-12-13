@@ -9,6 +9,8 @@ class GlobalState {
   String fireToken;
   String appPath;
   bool loggingOut = false;
+  //int therapistID;
+  Therapist therapist;
 
   //home variables
   DateTime lastSelectedDate;

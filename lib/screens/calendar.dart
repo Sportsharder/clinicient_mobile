@@ -33,8 +33,8 @@ class CalendarState extends State<Calendar> {
 
   ScrollController _scrollController = new ScrollController();
   AppointmentBloc _appointmentBloc = AppointmentBloc();
-  List<Appointment> _appointments;
-  List<Appointment> _filteredAppointments;
+  List<Appointment> _appointments = List();
+  List<Appointment> _filteredAppointments = List();
 
   @override
   void initState() {
@@ -65,7 +65,7 @@ class CalendarState extends State<Calendar> {
       print("error $err");
     }, cancelOnError: false);
 
-    _appointmentBloc.refreshAppointments(5);
+    _appointmentBloc.refreshAppointments(globalState.therapist.id);
   }
 
   @override
